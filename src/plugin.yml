@@ -1,0 +1,8 @@
+name: GoldRushChicken
+version: 0.1alpha
+author: Andreas Kutscheid
+main: org.flauschhaus.goldrushchicken.Main
+commands:
+  grc:
+    description: Spawn a hard-working Gold Rush Chicken
+    usage: /grc
