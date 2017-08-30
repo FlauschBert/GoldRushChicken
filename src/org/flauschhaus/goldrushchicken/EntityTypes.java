@@ -19,7 +19,7 @@ public enum EntityTypes
     {
       // Register entity class
       registerType.invoke (null, id, internalName, className, description);
-      // Attributes that cow and chicken have (Eggs + ?)
+      // Attributes that chicken have (egg)
       registerBehaviour.invoke (null, internalName, 10592673, 16711680);
     } catch (IllegalAccessException | InvocationTargetException e)
     {

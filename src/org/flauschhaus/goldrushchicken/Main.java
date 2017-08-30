@@ -6,12 +6,12 @@ import java.util.logging.Logger;
 
 public class Main extends JavaPlugin
 {
-  Logger logger;
+  public static Logger logger;
 
   @Override
   public void onLoad ()
   {
-    // Save logger
+    // Provide logger to plugin classes
     logger = this.getLogger ();
 
     // Register entity here already so the server is able to instantiate
