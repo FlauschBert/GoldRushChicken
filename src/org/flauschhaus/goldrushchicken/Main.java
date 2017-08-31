@@ -25,6 +25,9 @@ public class Main extends JavaPlugin
   {
     // Register our command "kit" (set an instance of your command class as executor)
     this.getCommand("grc").setExecutor(new Command());
+
+    // Register Event handler
+    this.getServer ().getPluginManager ().registerEvents (new EventHandler (), this);
   }
 
   @Override

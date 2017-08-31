@@ -1,15 +1,19 @@
 package org.flauschhaus.goldrushchicken;
 
 import net.minecraft.server.v1_12_R1.*;
+import org.bukkit.Bukkit;
 import org.bukkit.World;
-import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
 
 import java.util.Set;
 
-public class GoldRushChicken extends EntityChicken
+public class GoldRushChicken extends EntityChicken implements InventoryHolder
 {
   private World bukkitWorld;
+  private Inventory inventory;
 
   public GoldRushChicken (net.minecraft.server.v1_12_R1.World world)
   {
@@ -17,6 +21,7 @@ public class GoldRushChicken extends EntityChicken
     forgetGoals ();
     addGoals ();
     setAttributes ();
+    setupInventory ();
 
     bukkitWorld = null;
   }
@@ -28,6 +33,7 @@ public class GoldRushChicken extends EntityChicken
     forgetGoals ();
     addGoals ();
     setAttributes ();
+    setupInventory ();
 
     bukkitWorld = world;
   }
@@ -39,9 +45,25 @@ public class GoldRushChicken extends EntityChicken
     this.canPickUpLoot = true;
   }
 
+  public void openInventory (CraftPlayer player)
+  {
+    player.openInventory (getInventory ());
+  }
+
+  private void setupInventory ()
+  {
+    inventory = Bukkit.createInventory (this, 2 * 9, "Chicken bag");
+  }
+
+  @Override
+  public Inventory getInventory ()
+  {
+    return inventory;
+  }
+
   private void addGoals ()
   {
-    this.goalSelector.a (0, new PathFinderGoalWalk (this, new Location (bukkitWorld, locX, locY, locZ), 1.0));
+    //this.goalSelector.a (0, new PathFinderGoalWalk (this, new Location (bukkitWorld, locX, locY, locZ), 1.0));
     this.goalSelector.a(1, new PathfinderGoalLookAtPlayer (this, EntityHuman.class, 6.0F));
   }
 
