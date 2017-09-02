@@ -4,7 +4,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
 
-public class Main extends JavaPlugin
+public class Plugin extends JavaPlugin
 {
   public static Logger logger;
 
@@ -27,7 +27,7 @@ public class Main extends JavaPlugin
     this.getCommand("grc").setExecutor(new Command());
 
     // Register Event handler
-    this.getServer ().getPluginManager ().registerEvents (new EventHandler (), this);
+    this.getServer ().getPluginManager ().registerEvents (new EventHandler (),this);
   }
 
   @Override

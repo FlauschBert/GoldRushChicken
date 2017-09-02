@@ -18,8 +18,8 @@ public class GoldRushChicken extends EntityChicken implements InventoryHolder
   public GoldRushChicken (net.minecraft.server.v1_12_R1.World world)
   {
     super(world);
-    forgetGoals ();
-    addGoals ();
+    forgetVanillaGoals ();
+    addOwnGoals ();
     setAttributes ();
     setupInventory ();
 
@@ -30,8 +30,8 @@ public class GoldRushChicken extends EntityChicken implements InventoryHolder
   {
     // net.minecraft.server.v1_12_R1.World mcWorld = ((CraftWorld) world).getHandle ();
     super (((CraftWorld) world).getHandle ());
-    forgetGoals ();
-    addGoals ();
+    forgetVanillaGoals ();
+    addOwnGoals ();
     setAttributes ();
     setupInventory ();
 
@@ -52,7 +52,7 @@ public class GoldRushChicken extends EntityChicken implements InventoryHolder
 
   private void setupInventory ()
   {
-    inventory = Bukkit.createInventory (this, 2 * 9, "Chicken bag");
+    inventory = Bukkit.createInventory (this, 1 * 9, "Chicken bag");
   }
 
   @Override
@@ -61,13 +61,14 @@ public class GoldRushChicken extends EntityChicken implements InventoryHolder
     return inventory;
   }
 
-  private void addGoals ()
+  private void addOwnGoals ()
   {
     //this.goalSelector.a (0, new PathFinderGoalWalk (this, new Location (bukkitWorld, locX, locY, locZ), 1.0));
     this.goalSelector.a(1, new PathfinderGoalLookAtPlayer (this, EntityHuman.class, 6.0F));
+    //this.targetSelector.a(2, new PathfinderGoalNearestAttackableTarget(this, EntitySpider.class, 0, false));
   }
 
-  private void forgetGoals ()
+  private void forgetVanillaGoals ()
   {
     Set setGB = (Set) Helper.getPrivateMember ("b", PathfinderGoalSelector.class, this.goalSelector);
     setGB.clear ();

@@ -26,7 +26,7 @@ public class PathFinderGoalWalk extends PathfinderGoal
   @Override
   public boolean a()
   {
-    Main.logger.info ("a() called");
+    Plugin.logger.info ("a() called");
     return true;
   }
 
@@ -34,7 +34,7 @@ public class PathFinderGoalWalk extends PathfinderGoal
   @Override
   public void c()
   {
-    Main.logger.info ("c() called");
+    Plugin.logger.info ("c() called");
     PathEntity pathEntity = this.navigation.a(loc.getX(), loc.getY(), loc.getZ());
     this.navigation.a(pathEntity, speed);
   }
@@ -42,13 +42,13 @@ public class PathFinderGoalWalk extends PathfinderGoal
   @Override
   public void d()
   {
-    Main.logger.info ("d() called");
+    Plugin.logger.info ("d() called");
   }
 
   // updateTask () - called repeatedly
   @Override
   public void e()
   {
-    Main.logger.info ("e() called");
+    Plugin.logger.info ("e() called");
   }
 }

@@ -1,8 +1,8 @@
 name: GoldRushChicken
 version: 0.1alpha
 author: Andreas Kutscheid
-main: org.flauschhaus.goldrushchicken.Main
+main: org.flauschhaus.goldrushchicken.Plugin
 commands:
   grc:
-    description: Spawn a hard-working Gold Rush Chicken
+    description: Spawn hard-working Gold Rush Chicken
     usage: /grc

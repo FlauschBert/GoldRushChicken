@@ -23,7 +23,7 @@ public class EventHandler implements Listener
       GoldRushChicken chicken = (GoldRushChicken) craftChicken.getHandle ();
       chicken.openInventory ((CraftPlayer) event.getPlayer ());
     }
-    catch (ClassCastException e)
+    catch (Exception e)
     {
       event.setCancelled (true);
     }
