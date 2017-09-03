@@ -7,14 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db81eb7e-fa58-41f9-b841-f765be1bed18" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Main.java" afterPath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Plugin.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Bag.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/GoldRushChicken_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/GoldRushChicken_jar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GoldRushChicken.iml" afterPath="$PROJECT_DIR$/GoldRushChicken.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Command.java" afterPath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Command.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/EntityTypes.java" afterPath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/EntityTypes.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/EventHandler.java" afterPath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/EventHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/GoldRushChicken.java" afterPath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/GoldRushChicken.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Helper.java" afterPath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Helper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathFinderGoalWalk.java" afterPath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathFinderGoalWalk.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/plugin.yml" afterPath="$PROJECT_DIR$/src/plugin.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Plugin.java" afterPath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Plugin.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,50 +38,64 @@
           <file leaf-file-name="GoldRushChicken.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/GoldRushChicken.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
-                  <caret line="8" column="44" lean-forward="false" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="PathfinderGoalBreed.class" pinned="false" current-in-tab="false">
-            <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/PathfinderGoalBreed.class">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="657">
-                  <caret line="103" column="34" lean-forward="false" selection-start-line="103" selection-start-column="34" selection-end-line="103" selection-end-column="34" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CraftEventFactory.class" pinned="false" current-in-tab="false">
-            <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/craftbukkit/v1_12_R1/event/CraftEventFactory.class">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
-                  <caret line="174" column="58" lean-forward="false" selection-start-line="174" selection-start-column="58" selection-end-line="174" selection-end-column="58" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="EntityAnimal.class" pinned="false" current-in-tab="false">
-            <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityAnimal.class">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="28" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Helper.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Helper.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-377">
-                  <caret line="2" column="39" lean-forward="false" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+                <state relative-caret-position="300">
+                  <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
                   <folding>
-                    <element signature="e#2367#2375#0" expanded="true" />
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#624#625#0" expanded="true" />
+                    <element signature="e#660#661#0" expanded="true" />
+                    <element signature="e#696#697#0" expanded="true" />
+                    <element signature="e#727#728#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Command.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Command.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="20" column="67" lean-forward="false" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Bag.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Bag.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1297">
+                  <caret line="87" column="48" lean-forward="false" selection-start-line="87" selection-start-column="48" selection-end-line="87" selection-end-column="48" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#812#813#0" expanded="true" />
+                    <element signature="e#838#839#0" expanded="true" />
+                    <element signature="e#915#923#0" expanded="true" />
+                    <element signature="e#2200#2208#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="EntityTypes.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/EntityTypes.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="165">
+                  <caret line="11" column="61" lean-forward="false" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="EventHandler.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/EventHandler.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="345">
+                  <caret line="23" column="65" lean-forward="false" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -86,11 +104,9 @@
           <file leaf-file-name="Plugin.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Plugin.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="544">
-                  <caret line="34" column="3" lean-forward="false" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
+                <state relative-caret-position="60">
+                  <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -99,21 +115,21 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="ItemStack.class" pinned="false" current-in-tab="true">
-            <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/inventory/ItemStack.class">
+          <file leaf-file-name="CraftEventFactory.class" pinned="false" current-in-tab="true">
+            <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/org/bukkit/craftbukkit/v1_12_R1/event/CraftEventFactory.class">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="193">
-                  <caret line="199" column="103" lean-forward="false" selection-start-line="199" selection-start-column="102" selection-end-line="199" selection-end-column="103" />
+                <state relative-caret-position="179">
+                  <caret line="350" column="29" lean-forward="false" selection-start-line="350" selection-start-column="24" selection-end-line="350" selection-end-column="29" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Material.class" pinned="false" current-in-tab="false">
-            <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/Material.class">
+          <file leaf-file-name="CraftChicken.class" pinned="false" current-in-tab="false">
+            <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/org/bukkit/craftbukkit/v1_12_R1/entity/CraftChicken.class">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="160">
-                  <caret line="678" column="40" lean-forward="false" selection-start-line="678" selection-start-column="40" selection-end-line="678" selection-end-column="40" />
+                <state relative-caret-position="105">
+                  <caret line="13" column="47" lean-forward="false" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
                   <folding />
                 </state>
               </provider>
@@ -145,9 +161,10 @@
       <find>k</find>
       <find>breedItem</find>
       <find>feat</find>
+      <find>spawn</find>
     </findStrings>
     <dirStrings>
-      <dir>$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit</dir>
+      <dir>$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -156,16 +173,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/BlockGrass.class" />
+        <option value="$USER_HOME$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/BlockGrass.class" />
         <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/GoldRushAnimal.java" />
-        <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Command.java" />
-        <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/EntityTypes.java" />
         <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathFinderGoalWalk.java" />
         <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Main.java" />
-        <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/EventHandler.java" />
-        <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Plugin.java" />
         <option value="$PROJECT_DIR$/src/plugin.yml" />
+        <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Command.java" />
         <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Helper.java" />
+        <option value="$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/org/bukkit/inventory/ItemStack.class" />
+        <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/EntityTypes.java" />
+        <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/EventHandler.java" />
+        <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Bag.java" />
+        <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Plugin.java" />
         <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/GoldRushChicken.java" />
       </list>
     </option>
@@ -179,7 +198,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="PackagesPane" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -193,28 +212,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="GoldRushChicken" type="cbb8eebc:String" user="GoldRushChicken" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="GoldRushChicken" type="cbb8eebc:String" user="GoldRushChicken" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="GoldRushChicken" type="cbb8eebc:String" user="GoldRushChicken" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="org/flauschhaus/goldrushchicken" type="cbb8eebc:String" user="org/flauschhaus/goldrushchicken" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -267,7 +264,7 @@
               <item name="spigot-1.12.1.jar" type="462c0819:PsiDirectoryNode" />
               <item name="org" type="462c0819:PsiDirectoryNode" />
               <item name="bukkit" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
+              <item name="craftbukkit" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GoldRushChicken" type="b2602c69:ProjectViewProjectNode" />
@@ -275,7 +272,18 @@
               <item name="spigot-1.12.1.jar" type="462c0819:PsiDirectoryNode" />
               <item name="org" type="462c0819:PsiDirectoryNode" />
               <item name="bukkit" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="craftbukkit" type="462c0819:PsiDirectoryNode" />
+              <item name="v1_12_R1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GoldRushChicken" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="spigot-1.12.1.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="bukkit" type="462c0819:PsiDirectoryNode" />
+              <item name="craftbukkit" type="462c0819:PsiDirectoryNode" />
+              <item name="v1_12_R1" type="462c0819:PsiDirectoryNode" />
+              <item name="event" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -293,23 +301,27 @@
               <item name="GoldRushChicken" type="616d4139:PackageViewModuleNode" />
               <item name="org.flauschhaus.goldrushchicken" type="1f31426a:PackageElementNode" />
             </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
             <path>
-              <item name="GoldRushChicken" type="58d84e3e:PackageViewProjectNode" />
-              <item name="GoldRushChicken" type="616d4139:PackageViewModuleNode" />
-              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="GoldRushChicken" type="cbb8eebc:String" user="GoldRushChicken" />
             </path>
             <path>
-              <item name="GoldRushChicken" type="58d84e3e:PackageViewProjectNode" />
-              <item name="GoldRushChicken" type="616d4139:PackageViewModuleNode" />
-              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
-              <item name="net" type="1f31426a:PackageElementNode" />
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="GoldRushChicken" type="cbb8eebc:String" user="GoldRushChicken" />
+              <item name="src" type="cbb8eebc:String" user="src" />
             </path>
             <path>
-              <item name="GoldRushChicken" type="58d84e3e:PackageViewProjectNode" />
-              <item name="GoldRushChicken" type="616d4139:PackageViewModuleNode" />
-              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
-              <item name="net" type="1f31426a:PackageElementNode" />
-              <item name="minecraft.server.v1_12_R1" type="1f31426a:PackageElementNode" />
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="GoldRushChicken" type="cbb8eebc:String" user="GoldRushChicken" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="org/flauschhaus/goldrushchicken" type="cbb8eebc:String" user="org/flauschhaus/goldrushchicken" />
             </path>
           </expand>
           <select />
@@ -319,12 +331,17 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/out" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/plugins" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="extract.method.default.visibility" value="private" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="org.flauschhaus.goldrushchicken.Bag" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -360,6 +377,13 @@
       <module name="" />
       <envs />
     </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -379,19 +403,6 @@
       </option>
       <envs />
       <patterns />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -420,6 +431,12 @@
       <properties />
       <listeners />
     </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -438,11 +455,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="31" y="0" width="1890" height="1080" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1186" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23535565" sideWeight="0.49713877" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23513012" sideWeight="0.49713877" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2122449" sideWeight="0.50211865" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -450,9 +467,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299285" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14603692" sideWeight="0.73109245" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14583333" sideWeight="0.73109245" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13843648" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16610925" sideWeight="0.26890758" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -461,6 +477,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20127119" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890704" sideWeight="0.49788135" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -498,264 +515,44 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/spigotmc/Bukkit" />
+      <path value="$PROJECT_DIR$/spigotmc/Spigot" />
+      <path value="$PROJECT_DIR$/spigotmc/BuildData" />
+      <path value="$PROJECT_DIR$/spigotmc/CraftBukkit" />
+    </ignored-roots>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityHorseDonkey.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityHorseMule.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityHorseSkeleton.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/InventoryLargeChest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="66" column="39" lean-forward="true" selection-start-line="66" selection-start-column="39" selection-end-line="66" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityHorseAbstract.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="369" column="42" lean-forward="true" selection-start-line="369" selection-start-column="42" selection-end-line="369" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityHorse.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="12" column="52" lean-forward="false" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityInsentient.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="954" column="67" lean-forward="false" selection-start-line="954" selection-start-column="59" selection-end-line="954" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/event/Listener.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Command.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/Entity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="77" column="12" lean-forward="false" selection-start-line="77" selection-start-column="12" selection-end-line="77" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/event/player/PlayerInteractEntityEvent.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/entity/Creature.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="39" lean-forward="false" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/entity/Ageable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="39" lean-forward="false" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/entity/Animals.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/craftbukkit/v1_12_R1/entity/CraftChicken.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/craftbukkit/v1_12_R1/entity/CraftPlayer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="220" column="46" lean-forward="true" selection-start-line="220" selection-start-column="46" selection-end-line="220" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityPlayer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="41" column="13" lean-forward="false" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/plugin/java/JavaPlugin.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="34" column="22" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/inventory/InventoryHolder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/craftbukkit/v1_12_R1/inventory/CraftInventory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7248">
-          <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/inventory/InventoryView.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1122">
-          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/Art.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-411">
-          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/entity/Chicken.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/entity/EntityType.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1873">
-          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/entity/LivingEntity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/entity/Vehicle.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/util/Vector.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4219">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/craftbukkit/Main.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/inventory/ItemFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/Bukkit.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="416" column="21" lean-forward="true" selection-start-line="416" selection-start-column="21" selection-end-line="416" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/World.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4610">
-          <caret line="32" column="17" lean-forward="false" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/Instrument.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityHorseChestedAbstract.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1901">
-          <caret line="187" column="54" lean-forward="false" selection-start-line="187" selection-start-column="54" selection-end-line="187" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/event/EventHandler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/EventHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="50" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/entity/Creature.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/entity/Ageable.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/entity/Animals.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/craftbukkit/v1_12_R1/entity/CraftChicken.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/craftbukkit/v1_12_R1/entity/CraftPlayer.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityPlayer.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/plugin/java/JavaPlugin.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/inventory/InventoryHolder.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/craftbukkit/v1_12_R1/inventory/CraftInventory.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/inventory/InventoryView.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/Art.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/entity/Chicken.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/entity/EntityType.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/entity/LivingEntity.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/entity/Vehicle.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/util/Vector.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/craftbukkit/Main.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/inventory/ItemFactory.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/Bukkit.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/World.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/Instrument.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityHorseChestedAbstract.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/event/EventHandler.class" />
     <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -763,127 +560,170 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/craftbukkit/v1_12_R1/event/CraftEventFactory.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EnumParticle.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/inventory/Inventory.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/PathfinderGoalTempt.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityAnimal.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityItem.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/PathfinderGoalBreed.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/Material.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/NBTTagCompound.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/org/bukkit/inventory/ItemStack.class" />
+    <entry file="jar://$USER_HOME$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityChicken.class" />
+    <entry file="file://$PROJECT_DIR$/spigotmc/work/decompile-1ea8a6ae/net/minecraft/server/EntityGuardian.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="65" column="18" lean-forward="false" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/plugin.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
+        <state relative-caret-position="60">
           <caret line="4" column="9" lean-forward="false" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Plugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="34" column="3" lean-forward="false" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/craftbukkit/v1_12_R1/event/CraftEventFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="174" column="58" lean-forward="false" selection-start-line="174" selection-start-column="58" selection-end-line="174" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EnumParticle.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="77" column="10" lean-forward="false" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/inventory/Inventory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/PathfinderGoalTempt.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="25" column="27" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityAnimal.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityItem.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/PathfinderGoalBreed.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="657">
-          <caret line="103" column="34" lean-forward="false" selection-start-line="103" selection-start-column="34" selection-end-line="103" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/Material.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="678" column="40" lean-forward="false" selection-start-line="678" selection-start-column="40" selection-end-line="678" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/NBTTagCompound.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="77" column="14" lean-forward="false" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
-          <folding>
-            <element signature="e#1990#1991#0" expanded="true" />
-            <element signature="e#2024#2025#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/org/bukkit/inventory/ItemStack.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="199" column="103" lean-forward="false" selection-start-line="199" selection-start-column="102" selection-end-line="199" selection-end-column="103" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Helper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-377">
+        <state relative-caret-position="30">
           <caret line="2" column="39" lean-forward="false" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/org/bukkit/inventory/ItemStack.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-75">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/org/bukkit/entity/Chicken.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/org/bukkit/event/entity/EntityEvent.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
           <folding>
-            <element signature="e#2367#2375#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#413#414#0" expanded="true" />
+            <element signature="e#441#442#0" expanded="true" />
+            <element signature="e#480#481#0" expanded="true" />
+            <element signature="e#518#519#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/../spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityChicken.class">
+    <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/org/bukkit/entity/EntityType.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="35" column="44" lean-forward="false" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+        <state relative-caret-position="-568">
+          <caret line="87" column="25" lean-forward="false" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5729#5730#0" expanded="true" />
+            <element signature="e#5770#5771#0" expanded="true" />
+            <element signature="e#6229#6230#0" expanded="true" />
+            <element signature="e#6256#6257#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/Entity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="172" column="40" lean-forward="false" selection-start-line="172" selection-start-column="40" selection-end-line="172" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/org/bukkit/craftbukkit/v1_12_R1/entity/CraftChicken.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="13" column="47" lean-forward="false" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/org/bukkit/craftbukkit/v1_12_R1/event/CraftEventFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="350" column="29" lean-forward="false" selection-start-line="350" selection-start-column="24" selection-end-line="350" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Plugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/EventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="65" lean-forward="false" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/EntityTypes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="61" lean-forward="false" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Bag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1297">
+          <caret line="87" column="48" lean-forward="false" selection-start-line="87" selection-start-column="48" selection-end-line="87" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#812#813#0" expanded="true" />
+            <element signature="e#838#839#0" expanded="true" />
+            <element signature="e#915#923#0" expanded="true" />
+            <element signature="e#2200#2208#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="20" column="67" lean-forward="false" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/GoldRushChicken.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="44" lean-forward="false" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
-          <folding />
+        <state relative-caret-position="300">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#660#661#0" expanded="true" />
+            <element signature="e#696#697#0" expanded="true" />
+            <element signature="e#727#728#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -918,6 +758,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>jdk1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -947,6 +788,18 @@
               <list>
                 <option value="0.2" />
                 <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>

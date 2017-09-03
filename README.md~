@@ -8,8 +8,5 @@ java -jar BuildTools.jar --rev 1.12.1
 ```
 Place generated `spigot-1.12.1.jar` in `spigotmc` folder.
 
-## IntelliJ
-Ignore the folder `.idea`.
-
 ## Usage ingame
 command `/grc` spawns a gold rush chicken near the player

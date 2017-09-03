@@ -33,8 +33,9 @@ public class Command implements CommandExecutor
     location.add (1.0, 0.0, 0.0);
 
     World world = getWorld (commandSender);
+    CraftWorld craftWorld = (CraftWorld) world;
 
-    GoldRushChicken chicken = new GoldRushChicken (world);
+    GoldRushChicken chicken = new GoldRushChicken (craftWorld.getHandle ());
     chicken.setLocation (location.getX(), location.getY(), location.getZ(),
                          location.getYaw(), location.getPitch());
 

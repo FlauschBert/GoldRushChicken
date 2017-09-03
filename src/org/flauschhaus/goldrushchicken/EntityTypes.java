@@ -1,6 +1,7 @@
 package org.flauschhaus.goldrushchicken;
 
 import net.minecraft.server.v1_12_R1.Entity;
+import net.minecraft.server.v1_12_R1.EntityChicken;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

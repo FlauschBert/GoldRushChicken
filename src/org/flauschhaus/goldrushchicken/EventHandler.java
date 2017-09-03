@@ -21,7 +21,8 @@ public class EventHandler implements Listener
       CraftChicken craftChicken = (CraftChicken) event.getRightClicked ();
       // Do we have gold rush chicken?
       GoldRushChicken chicken = (GoldRushChicken) craftChicken.getHandle ();
-      chicken.openInventory ((CraftPlayer) event.getPlayer ());
+      CraftPlayer craftPlayer = (CraftPlayer) event.getPlayer ();
+      craftPlayer.openInventory (chicken.getInventory ());
     }
     catch (Exception e)
     {
