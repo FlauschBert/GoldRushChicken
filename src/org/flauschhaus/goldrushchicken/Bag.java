@@ -15,6 +15,8 @@ import java.util.UUID;
 
 public class Bag
 {
+  private static final String tagName = "info";
+  private static final String listTagName = "org.flauschhaus.infos";
   private Inventory inventory;
   private UUID uuid;
   private ItemStack feather = new ItemStack (Material.FEATHER, 1);
@@ -35,7 +37,7 @@ public class Bag
   {
     List<String> infos = new ArrayList<String> ();
     infos.add (uuid.toString ());
-    setItemStacksTo (feather, infos);
+    feather = setItemStacksTo (feather, infos);
     Plugin.logger.info ("Wrote: " + uuid.toString ());
   }
 
@@ -54,7 +56,7 @@ public class Bag
     for (String info: infos)
     {
       NBTTagCompound tag = new NBTTagCompound();
-      tag.setString ("info", info);
+      tag.setString (tagName, info);
       tagList.add (tag);
     }
     return tagList;
@@ -65,7 +67,7 @@ public class Bag
   {
     // Setup tag for saving
     NBTTagCompound compound = new NBTTagCompound ();
-    compound.set ("org.flauschhaus.infos", convert (infos));
+    compound.set (listTagName, convert (infos));
     // Convert to NMS item stack and set tag
     net.minecraft.server.v1_12_R1.ItemStack nmsItem = CraftItemStack.asNMSCopy (item);
     nmsItem.setTag (compound);
@@ -81,16 +83,20 @@ public class Bag
     NBTTagCompound compound = nmsItem.getTag ();
     try
     {
-      NBTTagList tagList = (NBTTagList) compound.get ("org.flauschhaus.infos");
+      NBTTagList tagList = (NBTTagList) compound.get (listTagName);
       for (int i = 0; i < tagList.size(); ++i)
       {
         NBTTagCompound tag = tagList.get (i);
-        itemStacks.add (tag.getString ("info"));
+        itemStacks.add (tag.getString (tagName));
       }
+    }
+    catch (NullPointerException e)
+    {
+      Plugin.logger.info ("No compound tag " + listTagName + " found");
     }
     catch (Exception e)
     {
-      // No item stacks saved yet
+      e.printStackTrace ();
     }
     return itemStacks;
   }
