@@ -1,6 +1,8 @@
 package org.flauschhaus.goldrushchicken;
 
-import net.minecraft.server.v1_12_R1.*;
+import net.minecraft.server.v1_12_R1.EntityAnimal;
+import net.minecraft.server.v1_12_R1.EnumParticle;
+import net.minecraft.server.v1_12_R1.World;
 
 import java.lang.reflect.Field;
 import java.util.Random;

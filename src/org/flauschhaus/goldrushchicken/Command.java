@@ -24,11 +24,6 @@ public class Command implements CommandExecutor
   @Override
   public boolean onCommand (CommandSender commandSender, org.bukkit.command.Command command, String s, String[] strings)
   {
-    commandSender.sendMessage ("Spawning gold rush chicken...");
-
-    Server server = commandSender.getServer ();
-    server.getLogger ().info (commandSender.getName () + " spawns gold rush chicken...");
-
     Location location = getPlayerLocation (commandSender);
     location.add (1.0, 0.0, 0.0);
 
@@ -38,8 +33,16 @@ public class Command implements CommandExecutor
     GoldRushChicken chicken = new GoldRushChicken (craftWorld.getHandle ());
     chicken.setLocation (location.getX(), location.getY(), location.getZ(),
                          location.getYaw(), location.getPitch());
-
-    ((CraftWorld)world).getHandle().addEntity(chicken);
+    if (craftWorld.getHandle().addEntity(chicken))
+    {
+      commandSender.sendMessage ("Spawning gold rush chicken...");
+      Plugin.addChicken (chicken.getUniqueID ());
+      Plugin.logger.info (commandSender.getName () + " spawns gold rush chicken: " + chicken.getUniqueID ());
+    }
+    else
+    {
+      commandSender.sendMessage ("Spawning gold rush chicken failed :(");
+    }
     return true;
   }
 }

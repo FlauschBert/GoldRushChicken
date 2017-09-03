@@ -1,14 +1,19 @@
 package org.flauschhaus.goldrushchicken;
 
-import net.minecraft.server.v1_12_R1.*;
+import net.minecraft.server.v1_12_R1.EntityChicken;
+import net.minecraft.server.v1_12_R1.EntityHuman;
+import net.minecraft.server.v1_12_R1.PathfinderGoalLookAtPlayer;
+import net.minecraft.server.v1_12_R1.PathfinderGoalSelector;
+import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.Set;
 
 public class GoldRushChicken extends EntityChicken implements InventoryHolder
 {
-  private Bag bag;
+  private Inventory bag;
 
   public GoldRushChicken (net.minecraft.server.v1_12_R1.World world)
   {
@@ -17,22 +22,18 @@ public class GoldRushChicken extends EntityChicken implements InventoryHolder
     addOwnGoals ();
     setAttributes ();
 
-    bag = new Bag (this, getUniqueID ());
+    bag = Bukkit.createInventory (this, 1 * 9, "Chicken bag");;
+  }
 
-    // Test save read
-    bag.saveItemStacks ();
-    bag.readItemStacks ();
+  void fillBag (ItemStack[] itemStacks)
+  {
+    bag.setStorageContents (itemStacks);
   }
 
   @Override
   public Inventory getInventory ()
   {
-    return bag.getInventory ();
-  }
-
-  public void saveInventory ()
-  {
-    bag.saveItemStacks ();
+    return bag;
   }
 
   private void setAttributes ()

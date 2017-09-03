@@ -3,6 +3,7 @@ package org.flauschhaus.goldrushchicken;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftChicken;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.EquipmentSlot;
 
@@ -27,6 +28,24 @@ public class EventHandler implements Listener
     catch (Exception e)
     {
       event.setCancelled (true);
+    }
+  }
+
+  @org.bukkit.event.EventHandler
+  public void onChickenGetsFried (EntityDeathEvent event)
+  {
+    try
+    {
+      // Do we have chicken?
+      CraftChicken craftChicken = (CraftChicken) event.getEntity ();
+      // Do we have gold rush chicken?
+      GoldRushChicken chicken = (GoldRushChicken) craftChicken.getHandle ();
+      // Remove from tracking
+      Plugin.removeChicken (chicken.getUniqueID ());
+    }
+    catch (Exception e)
+    {
+      // Nothing to do
     }
   }
 }
