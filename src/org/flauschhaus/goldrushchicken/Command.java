@@ -26,18 +26,10 @@ public class Command implements CommandExecutor
   {
     Location location = getPlayerLocation (commandSender);
     location.add (1.0, 0.0, 0.0);
-
     World world = getWorld (commandSender);
-    CraftWorld craftWorld = (CraftWorld) world;
-
-    GoldRushChicken chicken = new GoldRushChicken (craftWorld.getHandle ());
-    chicken.setLocation (location.getX(), location.getY(), location.getZ(),
-                         location.getYaw(), location.getPitch());
-    if (craftWorld.getHandle().addEntity(chicken))
+    if (GoldRushChicken.spawn (location, null, (CraftWorld) world))
     {
       commandSender.sendMessage ("Spawning gold rush chicken...");
-      Plugin.addChicken (chicken.getUniqueID ());
-      Plugin.logger.info (commandSender.getName () + " spawns gold rush chicken: " + chicken.getUniqueID ());
     }
     else
     {
@@ -45,4 +37,5 @@ public class Command implements CommandExecutor
     }
     return true;
   }
+
 }
