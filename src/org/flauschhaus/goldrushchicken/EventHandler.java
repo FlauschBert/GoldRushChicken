@@ -1,10 +1,12 @@
 package org.flauschhaus.goldrushchicken;
 
+import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftChicken;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.inventory.EquipmentSlot;
 
 public class EventHandler implements Listener
@@ -47,5 +49,19 @@ public class EventHandler implements Listener
     {
       // Nothing to do
     }
+  }
+
+  @org.bukkit.event.EventHandler
+  public void onPlayerLogin (PlayerLoginEvent event)
+  {
+    Bukkit.getScheduler ().scheduleSyncDelayedTask (Plugin.plugin, new Runnable ()
+    {
+      @Override
+      public void run ()
+      {
+        // Try to spawn delayed chicken on every login
+        GoldRushChicken.spawnDelayed (event.getPlayer ().getWorld ());
+      }
+    }, 20*3);
   }
 }

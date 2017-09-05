@@ -6,16 +6,20 @@ import net.minecraft.server.v1_12_R1.PathfinderGoalLookAtPlayer;
 import net.minecraft.server.v1_12_R1.PathfinderGoalSelector;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class GoldRushChicken extends EntityChicken implements InventoryHolder
 {
   private Inventory bag;
+  private static List<GoldRushChicken> delayedChicken = new ArrayList<> ();
 
   public GoldRushChicken (net.minecraft.server.v1_12_R1.World world)
   {
@@ -32,16 +36,40 @@ public class GoldRushChicken extends EntityChicken implements InventoryHolder
     GoldRushChicken chicken = new GoldRushChicken (world.getHandle ());
     chicken.setLocation (location.getX(), location.getY(), location.getZ(),
                          location.getYaw(), location.getPitch());
-    if (!world.getHandle().addEntity(chicken))
-    {
-      return false;
-    }
     if (itemStacks != null)
     {
       chicken.fillBag (itemStacks);
     }
+    if (!world.getHandle().addEntity(chicken))
+    {
+      Plugin.logger.warning ("Spawning chicken failed, saving for later");
+      delayedChicken.add (chicken);
+      return false;
+    }
     Plugin.addChicken (chicken.getUniqueID ());
     return true;
+  }
+  static void spawnDelayed (World world)
+  {
+    CraftWorld craftWorld = (CraftWorld) world;
+    List<GoldRushChicken> spawned = new ArrayList<> ();
+    for (GoldRushChicken chicken : delayedChicken)
+    {
+      if (!craftWorld.getHandle ().addEntity (chicken))
+      {
+        Plugin.logger.warning ("Spawning chicken failed, try later");
+      }
+      else
+      {
+        Plugin.addChicken (chicken.getUniqueID ());
+        spawned.add (chicken);
+      }
+    }
+    // Remove succeeded chicken
+    for (GoldRushChicken chicken : spawned)
+    {
+      delayedChicken.remove (chicken);
+    }
   }
 
   void fillBag (ItemStack[] itemStacks)

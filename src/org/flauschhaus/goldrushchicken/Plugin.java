@@ -16,7 +16,8 @@ import java.util.logging.Logger;
 public class Plugin extends JavaPlugin
 {
   static Logger logger;
-  private static List<UUID> chickens = new ArrayList<UUID> ();
+  static Plugin plugin;
+  private static List<UUID> chickens = new ArrayList<> ();
 
   static void addChicken (UUID uuid)
   {
@@ -32,6 +33,7 @@ public class Plugin extends JavaPlugin
   {
     // Provide logger to plugin classes
     logger = this.getLogger ();
+    plugin = this;
   }
 
   @Override
@@ -50,12 +52,7 @@ public class Plugin extends JavaPlugin
 
     // load and spawn chicken
     Storage.reset (Storage.Mode.READ, this);
-    while (Storage.readAndSpawn (this,
-      (Location location, ItemStack[] itemStacks, World world) ->
-      {
-         return GoldRushChicken.spawn (location, itemStacks, (CraftWorld) world);
-      })
-    );
+    while (Storage.readAndSpawn (this));
 
     // Register Event handler
     getServer ().getPluginManager ().registerEvents (new EventHandler (),this);
@@ -68,6 +65,7 @@ public class Plugin extends JavaPlugin
     Storage.reset (Storage.Mode.WRITE, this);
     for (UUID chicken : chickens)
     {
+      logger.info ("Saving chicken " + chicken.toString ());
       saveAndRemove (chicken);
     }
     Storage.finish (this);

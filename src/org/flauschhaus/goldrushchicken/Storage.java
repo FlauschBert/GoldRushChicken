@@ -4,6 +4,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
@@ -129,10 +130,7 @@ class Storage
     plugin.saveConfig ();
   }
 
-  interface SpawnChicken {
-    boolean spawn (Location location, ItemStack[] itemStacks, World world);
-  }
-  static boolean readAndSpawn (Plugin plugin, SpawnChicken m)
+  static boolean readAndSpawn (Plugin plugin)
   {
     try
     {
@@ -140,15 +138,11 @@ class Storage
       List<Double> locList = (List<Double>) config.getList (tag_loc + counter);
       List<String> invList = (List<String>) config.getList (tag_inv + counter);
       String worldName = config.getString (tag_world + counter);
+      Plugin.logger.info ("Spawning chicken " + counter + "...");
       counter += 1;
-      if (locList == null ||
-        invList == null ||
-        worldName == null)
-      {
-        return false;
-      }
+
       World world = plugin.getServer ().getWorld (worldName);
-      return m.spawn (toLocation (locList, world), toItemStack (invList), world);
+      return GoldRushChicken.spawn (toLocation (locList, world), toItemStack (invList), (CraftWorld) world);
     }
     catch (Exception e)
     {
