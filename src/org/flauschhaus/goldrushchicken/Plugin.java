@@ -51,8 +51,9 @@ public class Plugin extends JavaPlugin
     getCommand("grc").setExecutor(new Command());
 
     // load and spawn chicken
-    Storage.reset (Storage.Mode.READ, this);
+    Storage.reset ();
     while (Storage.readAndSpawn (this));
+    Storage.finish (this);
 
     // Register Event handler
     getServer ().getPluginManager ().registerEvents (new EventHandler (),this);
@@ -62,7 +63,7 @@ public class Plugin extends JavaPlugin
   public void onDisable ()
   {
     // Save and destroy all gold rush chicken - nobody is harmed ... only sleeping ^^
-    Storage.reset (Storage.Mode.WRITE, this);
+    Storage.reset ();
     for (UUID chicken : chickens)
     {
       logger.info ("Saving chicken " + chicken.toString ());

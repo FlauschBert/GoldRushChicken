@@ -104,15 +104,8 @@ class Storage
     }
   }
 
-  enum Mode { READ, WRITE };
-  static void reset (Mode mode, Plugin plugin)
+  static void reset ()
   {
-    if (mode == Mode.WRITE)
-    {
-      // Clear config file
-      plugin.saveResource ("config.yml", true);
-    }
-
     counter = 0;
   }
 
@@ -142,6 +135,11 @@ class Storage
       }
       List<Double> locList = (List<Double>) config.getList (tag_loc + counter);
       List<String> invList = (List<String>) config.getList (tag_inv + counter);
+      // Clear read values from config
+      config.set (tag_world + counter, null);
+      config.set (tag_loc + counter, null);
+      config.set (tag_inv + counter, null);
+
       counter += 1;
 
       World world = plugin.getServer ().getWorld (worldName);
