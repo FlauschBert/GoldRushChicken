@@ -62,6 +62,6 @@ public class EventHandler implements Listener
         // Try to spawn delayed chicken on every login
         GoldRushChicken.spawnDelayed (event.getPlayer ().getWorld ());
       }
-    }, 20*3);
+    }, 20*5);
   }
 }

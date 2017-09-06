@@ -19,7 +19,7 @@ import java.util.Set;
 public class GoldRushChicken extends EntityChicken implements InventoryHolder
 {
   private Inventory bag;
-  private static List<GoldRushChicken> delayedChicken = new ArrayList<> ();
+  private static List<Delayed> delayedChicken = new ArrayList<> ();
 
   public GoldRushChicken (net.minecraft.server.v1_12_R1.World world)
   {
@@ -36,14 +36,15 @@ public class GoldRushChicken extends EntityChicken implements InventoryHolder
     GoldRushChicken chicken = new GoldRushChicken (world.getHandle ());
     chicken.setLocation (location.getX(), location.getY(), location.getZ(),
                          location.getYaw(), location.getPitch());
+    Plugin.logger.info ("Spawning chicken at location: " + chicken.locX + ", " + chicken.locY + ", " + chicken.locZ);
     if (itemStacks != null)
     {
       chicken.fillBag (itemStacks);
     }
     if (!world.getHandle().addEntity(chicken))
     {
-      Plugin.logger.warning ("Spawning chicken failed, saving for later");
-      delayedChicken.add (chicken);
+      Plugin.logger.warning ("Spawning chicken failed, saving for later try...");
+      delayedChicken.add (new Delayed (itemStacks, location));
       return false;
     }
     Plugin.addChicken (chicken.getUniqueID ());
@@ -52,23 +53,11 @@ public class GoldRushChicken extends EntityChicken implements InventoryHolder
   static void spawnDelayed (World world)
   {
     CraftWorld craftWorld = (CraftWorld) world;
-    List<GoldRushChicken> spawned = new ArrayList<> ();
-    for (GoldRushChicken chicken : delayedChicken)
+    List<Delayed> not_spawned = new ArrayList<> (delayedChicken);
+    delayedChicken.clear ();
+    for (Delayed delayed : not_spawned)
     {
-      if (!craftWorld.getHandle ().addEntity (chicken))
-      {
-        Plugin.logger.warning ("Spawning chicken failed, try later");
-      }
-      else
-      {
-        Plugin.addChicken (chicken.getUniqueID ());
-        spawned.add (chicken);
-      }
-    }
-    // Remove succeeded chicken
-    for (GoldRushChicken chicken : spawned)
-    {
-      delayedChicken.remove (chicken);
+      delayed.spawn (craftWorld);
     }
   }
 

@@ -77,10 +77,10 @@ class Storage
     return new Location (
       world,
       list.get (0),
-      list.get (0),
-      list.get (0),
-      list.get (0).floatValue (),
-      list.get (0).floatValue ()
+      list.get (1),
+      list.get (2),
+      list.get (3).floatValue (),
+      list.get (4).floatValue ()
       );
   }
 
@@ -135,10 +135,13 @@ class Storage
     try
     {
       FileConfiguration config = plugin.getConfig ();
+      String worldName = config.getString (tag_world + counter);
+      if (worldName == null)
+      {
+        return false;
+      }
       List<Double> locList = (List<Double>) config.getList (tag_loc + counter);
       List<String> invList = (List<String>) config.getList (tag_inv + counter);
-      String worldName = config.getString (tag_world + counter);
-      Plugin.logger.info ("Spawning chicken " + counter + "...");
       counter += 1;
 
       World world = plugin.getServer ().getWorld (worldName);
