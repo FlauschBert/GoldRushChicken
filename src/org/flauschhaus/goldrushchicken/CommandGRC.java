@@ -7,7 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
 
-public class Command implements CommandExecutor
+public class CommandGRC implements CommandExecutor
 {
   private Location getPlayerLocation (CommandSender commandSender)
   {

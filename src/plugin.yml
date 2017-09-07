@@ -6,3 +6,6 @@ commands:
   grc:
     description: Spawn hard-working Gold Rush Chicken
     usage: /grc
+  grd:
+    description: Spawn skeletal digger
+    usage: /grd

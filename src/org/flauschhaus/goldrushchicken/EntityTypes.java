@@ -1,7 +1,6 @@
 package org.flauschhaus.goldrushchicken;
 
 import net.minecraft.server.v1_12_R1.Entity;
-import net.minecraft.server.v1_12_R1.EntityChicken;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -9,7 +8,8 @@ import java.lang.reflect.Method;
 
 public enum EntityTypes
 {
-  GOLD_RUSH_CHICKEN ("gold_rush_chicken", 93, GoldRushChicken.class, "GoldRushChicken");
+  GOLD_RUSH_CHICKEN ("gold_rush_chicken", 93, GoldRushChicken.class, "GoldRushChicken"),
+  SKELETAL_DIGGER ("skeletal_digger", 5, SkeletalDigger.class, "SkeletalDigger");
   //GOLD_RUSH_CHICKEN ("gold_rush_chicken", 201, GoldRushChicken.class, "GoldRushChicken");
 
   EntityTypes(String internalName, int id, Class<? extends Entity> className, String description)
@@ -21,7 +21,7 @@ public enum EntityTypes
       // Register entity class
       registerType.invoke (null, id, internalName, className, description);
       // Attributes that chicken have (egg)
-      registerBehaviour.invoke (null, internalName, 10592673, 16711680);
+      //registerBehaviour.invoke (null, internalName, 10592673, 16711680);
     } catch (IllegalAccessException | InvocationTargetException e)
     {
       e.printStackTrace ();
