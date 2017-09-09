@@ -32,10 +32,8 @@ public class Plugin extends JavaPlugin
     logger = this.getLogger ();
     plugin = this;
 
-    // Register entity here so the server is able to instantiate
+    // Register entitys here so the server is able to instantiate
     // from last session - we have nothing to restore ourselves
-    EntityTypes type2 = EntityTypes.SKELETAL_DIGGER;
-    logger.info ("Registering Entity Type " + type2);
   }
 
   @Override
@@ -46,6 +44,9 @@ public class Plugin extends JavaPlugin
     // Register entity here so the server isn't able to instantiate
     // our entities from a past session - we do this ourselves to be
     // able to fill the chicken's bag
+    NMSUtils.registerEntity ("skeletal_digger", NMSUtils.Type.WITHER_SKELETON, SkeletalDigger.class, false);
+    logger.info ("Registering Entity Type " + SkeletalDigger.class.toString ());
+
     NMSUtils.registerEntity ("gold_rush_chicken", NMSUtils.Type.CHICKEN, GoldRushChicken.class, false);
     logger.info ("Registering Entity Type " + GoldRushChicken.class.toString ());
 
