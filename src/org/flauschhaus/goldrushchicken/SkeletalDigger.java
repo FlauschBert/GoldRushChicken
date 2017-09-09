@@ -4,9 +4,6 @@ import net.minecraft.server.v1_12_R1.*;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
 
-import javax.annotation.Nullable;
-import java.util.Calendar;
-
 public class SkeletalDigger extends EntitySkeletonWither
 {
   public SkeletalDigger (World world)
@@ -15,27 +12,15 @@ public class SkeletalDigger extends EntitySkeletonWither
   }
 
   @Override
-  protected void a(DifficultyDamageScaler difficultydamagescaler) {
-    this.setSlot(EnumItemSlot.MAINHAND, new ItemStack(Items.DIAMOND_PICKAXE));
-  }
-
-  @Override
-  public GroupDataEntity prepare(DifficultyDamageScaler difficultydamagescaler, @Nullable GroupDataEntity groupdataentity) {
-    groupdataentity = super.prepare(difficultydamagescaler, groupdataentity);
-    this.a(difficultydamagescaler);
-    this.b(difficultydamagescaler);
-    this.dm();
-    this.m(this.random.nextFloat() < 0.55F * difficultydamagescaler.d());
-    this.setSlot(EnumItemSlot.HEAD, new ItemStack(Blocks.LIT_PUMPKIN));
-    this.dropChanceArmor[EnumItemSlot.HEAD.b()] = 0.0F;
-
-    return groupdataentity;
-  }
-
-  @Override
   protected void r ()
   {
-    this.goalSelector.a (1, new PathfinderGoalLookAtPlayer (this, EntityHuman.class, 6.0F));
+    // Ability to swim
+    this.goalSelector.a(0, new PathfinderGoalFloat(this));
+    this.goalSelector.a (1, new PathfinderGoalLookAtPlayer (this, EntityHuman.class, 8.0F));
+    // Randomly look around
+    this.goalSelector.a(2, new PathfinderGoalRandomLookaround(this));
+    // Attack creeper
+    this.targetSelector.a(3, new PathfinderGoalNearestAttackableTarget<>(this, EntityCreeper.class, true));
   }
 
   static boolean spawn (Location location, CraftWorld world)

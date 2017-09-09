@@ -31,6 +31,11 @@ public class Plugin extends JavaPlugin
     // Provide logger to plugin classes
     logger = this.getLogger ();
     plugin = this;
+
+    // Register entity here so the server is able to instantiate
+    // from last session - we have nothing to restore ourselves
+    EntityTypes type2 = EntityTypes.SKELETAL_DIGGER;
+    logger.info ("Registering Entity Type " + type2);
   }
 
   @Override
@@ -43,8 +48,6 @@ public class Plugin extends JavaPlugin
     // able to fill the chicken's bag
     EntityTypes type1 = EntityTypes.GOLD_RUSH_CHICKEN;
     logger.info ("Registering Entity Type " + type1);
-    EntityTypes type2 = EntityTypes.SKELETAL_DIGGER;
-    logger.info ("Registering Entity Type " + type2);
 
     // Register our command "kit" (set an instance of your command class as executor)
     getCommand("grc").setExecutor(new CommandGRC ());
