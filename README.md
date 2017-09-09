@@ -24,5 +24,11 @@ $HOME/Documents/GoldRushChicken:
 ```
 `$HOME` is detected on both windows and linux.
 
+## Debugging plugin
+Start the server with the following command for remote debugging:
+```
+java -Xmx2G -Xms2G -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar ./spigot-1.12.1.jar
+```
+
 ## Usage ingame
 command `/grc` spawns a gold rush chicken near the player
