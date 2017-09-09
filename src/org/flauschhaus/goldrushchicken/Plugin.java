@@ -46,8 +46,8 @@ public class Plugin extends JavaPlugin
     // Register entity here so the server isn't able to instantiate
     // our entities from a past session - we do this ourselves to be
     // able to fill the chicken's bag
-    EntityTypes type1 = EntityTypes.GOLD_RUSH_CHICKEN;
-    logger.info ("Registering Entity Type " + type1);
+    NMSUtils.registerEntity ("gold_rush_chicken", NMSUtils.Type.CHICKEN, GoldRushChicken.class, false);
+    logger.info ("Registering Entity Type " + GoldRushChicken.class.toString ());
 
     // Register our command "kit" (set an instance of your command class as executor)
     getCommand("grc").setExecutor(new CommandGRC ());

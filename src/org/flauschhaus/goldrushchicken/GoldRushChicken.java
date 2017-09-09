@@ -5,6 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
+import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
@@ -28,14 +29,13 @@ public class GoldRushChicken extends EntityChicken implements InventoryHolder
   static boolean spawn (Location location, ItemStack[] itemStacks, CraftWorld world)
   {
     GoldRushChicken chicken = new GoldRushChicken (world.getHandle ());
-    chicken.setLocation (location.getX(), location.getY(), location.getZ(),
-                         location.getYaw(), location.getPitch());
+    chicken.setPosition (location.getX(), location.getY(), location.getZ());
     Plugin.logger.info ("Spawning chicken at location: " + chicken.locX + ", " + chicken.locY + ", " + chicken.locZ);
     if (itemStacks != null)
     {
       chicken.fillBag (itemStacks);
     }
-    if (!world.getHandle().addEntity(chicken))
+    if (!chicken.world.addEntity (chicken, CreatureSpawnEvent.SpawnReason.CUSTOM))
     {
       Plugin.logger.warning ("Spawning chicken failed, saving for later try...");
       delayedChicken.add (new Delayed (itemStacks, location));

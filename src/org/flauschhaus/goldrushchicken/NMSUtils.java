@@ -146,7 +146,7 @@ public class NMSUtils {
 	 * <p>
 	 * If {@link #isAccessible()} returns false, the process will not be executed.
 	 *
-	 * @see #registerEntity(MobType, Class, boolean)
+	 * @see #registerEntity(Type, Class, boolean)
 	 * @param data
 	 *            - The spawn data (chance, amount, spawn weight..)
 	 * @param meta
@@ -185,7 +185,7 @@ public class NMSUtils {
 	 * <p>
 	 * If {@link #isAccessible()} returns false, the process will not be executed.
 	 *
-	 * @see #registerEntity(MobType, Class, boolean)
+	 * @see #registerEntity(Type, Class, boolean)
 	 * @param type
 	 *            - The mob type to spawn
 	 * @param data
@@ -271,7 +271,7 @@ public class NMSUtils {
 	 *            - Your custom class that'll be used
 	 * @param biomes
 	 *            - The array of biomes to make the mob spawn in.
-	 * @see #registerEntity(int, String, MobType, Class, Biome[])
+	 * @see #registerEntity(int, String, Type, Class, Biome[])
 	 * @see EntityType#getName() EntityType#getName() for the savegame id.
 	 * @see EntityType#getId() EntityType#getId() for the correct mob id.
 	 */
@@ -320,7 +320,7 @@ public class NMSUtils {
 	 * @param override
 	 *            - Should your mob be set as a default in each biome? Only one custom entity of this type entity can
 	 *            have this set as 'true'.
-	 * @see #registerEntity(int, String, MobType, Class, Biome[])
+	 * @see #registerEntity(int, String, Type, Class, Biome[])
 	 * @see EntityType#getName() EntityType#getName() for the savegame id.
 	 */
 	@SuppressWarnings("unchecked")
