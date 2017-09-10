@@ -3,6 +3,7 @@ package org.flauschhaus.goldrushchicken;
 import net.minecraft.server.v1_12_R1.*;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 
 public class SkeletalDigger extends EntitySkeletonWither
@@ -20,7 +21,8 @@ public class SkeletalDigger extends EntitySkeletonWither
     gde = super.prepare(dds, gde);
     // We'll set the main hand to a bow and head to a pumpkin now!
     this.setSlot(EnumItemSlot.MAINHAND, new ItemStack(Items.DIAMOND_PICKAXE));
-    this.setSlot(EnumItemSlot.HEAD, new ItemStack(Blocks.PUMPKIN));
+    this.setSlot (EnumItemSlot.HEAD, new ItemStack (Blocks.PUMPKIN));
+
     // Last, returning the GroupDataEntity called gde.
     return gde;
   }
@@ -39,18 +41,19 @@ public class SkeletalDigger extends EntitySkeletonWither
 
   static boolean spawn (Location location, CraftWorld world)
   {
-    SkeletalDigger skeletonDigger = new SkeletalDigger (world.getHandle ());
-    skeletonDigger.setPosition (location.getX(), location.getY(), location.getZ());
-    Plugin.logger.info ("Spawning skeletal digger at location: " + skeletonDigger.locX + ", " + skeletonDigger.locY + ", " + skeletonDigger.locZ);
-    if (!skeletonDigger.world.addEntity (skeletonDigger, CreatureSpawnEvent.SpawnReason.CUSTOM))
+    SkeletalDigger skeletalDigger = new SkeletalDigger (world.getHandle ());
+    skeletalDigger.setPosition (location.getX(), location.getY(), location.getZ());
+    if (!skeletalDigger.world.addEntity (skeletalDigger, CreatureSpawnEvent.SpawnReason.CUSTOM))
     {
-      Plugin.logger.warning ("Spawning skeletal digger failed, saving for later try...");
+      Plugin.logger.info ("Spawning skeletal digger failed");
       return false;
     }
+    Plugin.logger.info ("Spawning skeletal digger at location: " + skeletalDigger.locX + ", " + skeletalDigger.locY + ", " + skeletalDigger.locZ);
 
-    // Add pickaxe and pumpkin
-    ((EntityInsentient) skeletonDigger).prepare(world.getHandle().D(new BlockPosition(skeletonDigger)), (GroupDataEntity) null);
-    //Plugin.addChicken (chicken.getUniqueID ());
+    Plugin.addDigger (skeletalDigger.getUniqueID ());
+
+    // Add/Update pickaxe and pumpkin
+    ((EntityInsentient) skeletalDigger).prepare(skeletalDigger.world.D(new BlockPosition(skeletalDigger)), (GroupDataEntity) null);
     return true;
   }
 }

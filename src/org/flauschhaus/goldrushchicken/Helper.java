@@ -1,10 +1,12 @@
 package org.flauschhaus.goldrushchicken;
 
 import net.minecraft.server.v1_12_R1.EntityAnimal;
+import net.minecraft.server.v1_12_R1.EntityLiving;
 import net.minecraft.server.v1_12_R1.EnumParticle;
 import net.minecraft.server.v1_12_R1.World;
+import org.bukkit.Location;
+import org.bukkit.Material;
 
-import java.lang.reflect.Field;
 import java.util.Random;
 
 public class Helper
@@ -25,4 +27,13 @@ public class Helper
       world.addParticle (particle, animal.locX + d3, animal.locY + d4, animal.locZ + d5, d0, d1, d2, new int[0]);
     }
   }
+
+  static int getLightLevel (EntityLiving entityLiving)
+  {
+    Location pos = new Location (entityLiving.world.getWorld (), entityLiving.locX, entityLiving.locY - 1, entityLiving.locZ);
+    return pos.getBlock ().getLightLevel ();
+  }
+
+
+
 }

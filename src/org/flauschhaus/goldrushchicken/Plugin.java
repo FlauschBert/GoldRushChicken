@@ -15,6 +15,7 @@ public class Plugin extends JavaPlugin
   static Logger logger;
   static Plugin plugin;
   private static List<UUID> chickens = new ArrayList<> ();
+  public static List<UUID> diggers = new ArrayList<> ();
 
   static void addChicken (UUID uuid)
   {
@@ -23,6 +24,15 @@ public class Plugin extends JavaPlugin
   static void removeChicken (UUID uuid)
   {
     chickens.remove (uuid);
+  }
+
+  static void addDigger (UUID uuid)
+  {
+    diggers.add (uuid);
+  }
+  static void removeDigger (UUID uuid)
+  {
+    diggers.remove (uuid);
   }
 
   @Override

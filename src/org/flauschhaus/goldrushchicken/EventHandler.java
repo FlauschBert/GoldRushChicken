@@ -3,6 +3,7 @@ package org.flauschhaus.goldrushchicken;
 import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftChicken;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftWitherSkeleton;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
@@ -34,8 +35,9 @@ public class EventHandler implements Listener
   }
 
   @org.bukkit.event.EventHandler
-  public void onChickenGetsFried (EntityDeathEvent event)
+  public void onEntityGetsFried (EntityDeathEvent event)
   {
+    // Handle chicken
     try
     {
       // Do we have chicken?
@@ -49,6 +51,22 @@ public class EventHandler implements Listener
     {
       // Nothing to do
     }
+
+    // Handle diggers
+    try
+    {
+      // Do we have wither skeleton?
+      CraftWitherSkeleton craftWitherSkeleton = (CraftWitherSkeleton) event.getEntity ();
+      // Do we have skeletal digger?
+      SkeletalDigger digger = (SkeletalDigger) craftWitherSkeleton.getHandle ();
+      // Remove from tracking
+      Plugin.removeDigger (digger.getUniqueID ());
+    }
+    catch (Exception e)
+    {
+      // Nothing to do
+    }
+
   }
 
   @org.bukkit.event.EventHandler
