@@ -77,7 +77,7 @@ public class GoldRushChicken extends EntityChicken implements InventoryHolder
     // Randomly look around
     this.goalSelector.a(3, new PathfinderGoalRandomLookaround(this));
 
-    //this.goalSelector.a (0, new PathFinderGoalWalk (this, new Location (bukkitWorld, locX, locY, locZ), 1.0));
+    //this.goalSelector.a (0, new PathfinderGoalDigForGold (this, new Location (bukkitWorld, locX, locY, locZ), 1.0));
     //this.targetSelector.a(2, new PathfinderGoalNearestAttackableTarget(this, EntitySpider.class, 0, false));
   }
 
