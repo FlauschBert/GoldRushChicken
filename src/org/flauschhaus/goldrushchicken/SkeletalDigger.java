@@ -1,19 +1,34 @@
 package org.flauschhaus.goldrushchicken;
 
 import net.minecraft.server.v1_12_R1.*;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.block.Block;
+import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
-import org.bukkit.entity.Player;
 import org.bukkit.event.entity.CreatureSpawnEvent;
+
+import java.util.ArrayList;
+
+class Target
+{
+  Block block = null;
+  boolean lastDigDown = false;
+}
 
 public class SkeletalDigger extends EntitySkeletonWither
 {
-  public SkeletalDigger (World world)
+  private Target lastDigPosition = new Target ();
+
+  SkeletalDigger (World world)
   {
     super(world);
     this.setCustomName ("Digga");
     this.setCustomNameVisible (true);
+  }
+
+  void setMaterials (ArrayList<Material> materials)
+  {
+    this.goalSelector.a (3, new PathfinderGoalDigForResource (this, materials, lastDigPosition));
   }
 
   @Override
@@ -36,9 +51,7 @@ public class SkeletalDigger extends EntitySkeletonWither
     this.goalSelector.a (1, new PathfinderGoalLookAtPlayer (this, EntityHuman.class, 8.0F));
     // Randomly look around
     this.goalSelector.a(2, new PathfinderGoalRandomLookaround(this));
-    this.goalSelector.a (3, new PathfinderGoalDigForGold (this));
-    // Attack creeper
-    this.targetSelector.a(4, new PathfinderGoalNearestAttackableTarget<>(this, EntityCreeper.class, true));
+    this.goalSelector.a (4, new PathfinderGoalGotoLastDig (this, lastDigPosition, 2.0D));
   }
 
   static boolean spawn (Location location, CraftWorld world)
