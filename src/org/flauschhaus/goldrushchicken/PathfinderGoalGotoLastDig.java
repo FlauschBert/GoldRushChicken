@@ -13,8 +13,6 @@ public class PathfinderGoalGotoLastDig extends PathfinderGoal
 
   PathfinderGoalGotoLastDig (EntityInsentient entity, Target walkDst, double speed)
   {
-    Plugin.logger.info ("PathfinderGoalGotoLastDig() called");
-
     this.entity = entity;
     this.walkDst = walkDst;
     this.speed = speed;
@@ -24,7 +22,7 @@ public class PathfinderGoalGotoLastDig extends PathfinderGoal
   @Override
   public boolean a()
   {
-    Plugin.logger.info ("a() called");
+    Plugin.logger.info ("PathfinderGoalGotoLastDig a() called");
 
     // FIXME: ???
     if (entity.aI () >= 100)
@@ -37,7 +35,7 @@ public class PathfinderGoalGotoLastDig extends PathfinderGoal
   @Override
   public void c()
   {
-    Plugin.logger.info ("c() called");
+    Plugin.logger.info ("PathfinderGoalGotoLastDig c() called");
     updateGoal ();
   }
 
@@ -45,14 +43,14 @@ public class PathfinderGoalGotoLastDig extends PathfinderGoal
   @Override
   public void d()
   {
-    Plugin.logger.info ("d() called");
+    Plugin.logger.info ("PathfinderGoalGotoLastDig d() called");
   }
 
   // updateTask () - called repeatedly if a returns true
   @Override
   public void e()
   {
-    Plugin.logger.info ("e() called");
+    Plugin.logger.info ("PathfinderGoalGotoLastDig e() called");
 
     // Except the first two times (always false) it returns whether the path is free
     if (!entity.getNavigation ().a (x, y, z, speed))

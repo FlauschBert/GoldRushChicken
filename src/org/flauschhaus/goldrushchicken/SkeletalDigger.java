@@ -17,7 +17,7 @@ class Target
 
 public class SkeletalDigger extends EntitySkeletonWither
 {
-  private Target lastDigPosition = new Target ();
+  private Target lastDigPosition = null;
 
   SkeletalDigger (World world)
   {
@@ -26,9 +26,12 @@ public class SkeletalDigger extends EntitySkeletonWither
     this.setCustomNameVisible (true);
   }
 
-  void setMaterials (ArrayList<Material> materials)
+  private ArrayList<Material> getMaterials ()
   {
-    this.goalSelector.a (3, new PathfinderGoalDigForResource (this, materials, lastDigPosition));
+    ArrayList<Material> materials = new ArrayList<Material> ();
+    materials.add (Material.GOLD_ORE);
+    materials.add (Material.DIAMOND_ORE);
+    return materials;
   }
 
   @Override
@@ -46,11 +49,15 @@ public class SkeletalDigger extends EntitySkeletonWither
   @Override
   protected void r ()
   {
+    if (lastDigPosition == null)
+      lastDigPosition = new Target ();
+
     // Ability to swim
     this.goalSelector.a(0, new PathfinderGoalFloat(this));
     this.goalSelector.a (1, new PathfinderGoalLookAtPlayer (this, EntityHuman.class, 8.0F));
     // Randomly look around
     this.goalSelector.a(2, new PathfinderGoalRandomLookaround(this));
+    this.goalSelector.a (3, new PathfinderGoalDigForResource (this, getMaterials (), lastDigPosition));
     this.goalSelector.a (4, new PathfinderGoalGotoLastDig (this, lastDigPosition, 2.0D));
   }
 

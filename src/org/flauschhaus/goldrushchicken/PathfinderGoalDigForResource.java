@@ -34,7 +34,7 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
   @Override
   public boolean a()
   {
-    Plugin.logger.info ("a() called");
+    Plugin.logger.info ("PathfinderGoalDigForResource a() called");
 
     // If nothing found yet call updateTask()
     if (resourceDst == null)
@@ -61,21 +61,21 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
   @Override
   public void c()
   {
-    Plugin.logger.info ("c() called");
+    Plugin.logger.info ("PathfinderGoalDigForResource c() called");
   }
 
   // onFinish () - called only once - after returns false the first time
   @Override
   public void d()
   {
-    Plugin.logger.info ("d() called");
+    Plugin.logger.info ("PathfinderGoalDigForResource d() called");
   }
 
   // updateTask () - called repeatedly if a returns true
   @Override
   public void e()
   {
-    Plugin.logger.info ("e() called");
+    Plugin.logger.info ("PathfinderGoalDigForResource e() called");
 
     if (waiting)
       return;
@@ -235,6 +235,8 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
 
   private Block breakBlockAndSetWaiting (int x, int y, int z)
   {
+    Plugin.logger.info ("breakBlockAndSetWaiting");
+
     Block blockToBreak = getWorld().getBlockAt(x, y, z);
 
     // Check for falling blocks and wait if necessary
