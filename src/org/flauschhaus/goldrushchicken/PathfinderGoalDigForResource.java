@@ -19,8 +19,11 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
   private ArrayList<Material> materials;
   private Target walkDst = null;
 
+  private int lightCounter = 0;
+  private final int lightThreshold = 8;
+
   // Initial false: no waiting; true: wait until tick
-  private boolean waiting = false;
+  // walkDst.waiting
   private final int waitTicksForFallingBlock = 25;
 
   PathfinderGoalDigForResource (EntityInsentient entity, ArrayList<Material> materials, Target walkDst)
@@ -36,6 +39,13 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
   {
     Plugin.logger.info ("PathfinderGoalDigForResource a() called");
 
+    if (walkDst.waiting)
+      return false;
+
+    // Wait for goto last dig goal
+    if (walkDst.block != null)
+      return false;
+
     // If nothing found yet call updateTask()
     if (resourceDst == null)
       return true;
@@ -47,8 +57,7 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
 
       // Reset to search for new resourceDst
       resourceDst = null;
-      walkDst.block = null;
-      waiting = false;
+
       // Search xz first before going down again
       walkDst.lastDigDown = true;
     }
@@ -77,13 +86,6 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
   {
     Plugin.logger.info ("PathfinderGoalDigForResource e() called");
 
-    if (waiting)
-      return;
-
-    // Wait for goto last dig goal
-    if (walkDst.block != null)
-      return;
-
     // If no resourceDst try to find goal inside distance blocks
     if (null == resourceDst)
     {
@@ -110,6 +112,7 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
     // If no resourceDst found yet dig down
     if (resourceDst == null)
     {
+      Plugin.logger.info ("Dig and move ...");
       if (walkDst.lastDigDown)
       {
         digX += 1;
@@ -123,6 +126,7 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
     }
     else
     {
+      Plugin.logger.info ("Resource ...");
       int tarX = resourceDst.getX();
       int tarY = resourceDst.getY();
       int tarZ = resourceDst.getZ();
@@ -153,23 +157,41 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
       }
       else
       {
+        Plugin.logger.info ("Argh!");
         walkDst.lastDigDown = true;
       }
     }
 
-    // Clear second block above
-    breakBlockAndSetWaiting (digX, digY + 1, digZ);
+    int waitTicks = 0;
+    waitTicks += breakBlockAndAddWait (digX, digY + 3, digZ, false);
+    waitTicks += breakBlockAndAddWait (digX, digY + 2, digZ, true);
+    waitTicks += breakBlockAndAddWait (digX, digY + 1, digZ, true);
+    waitTicks += breakBlockAndAddWait (digX, digY, digZ, true);
 
-    // Check block above two blocks
+    // Add light to the non broken block above (if not air)
+    addLight (digX, digY + 3, digZ);
+
+    // Wait if necessary
+    if (waitTicks > 0)
     {
-      Block blockToAir = getWorld().getBlockAt(digX, digY + 2, digZ);
-
-      // Check for falling blocks and wait if necessary
-      if (isBlockFalling (blockToAir))
-        wait (waitTicksForFallingBlock);
+      Plugin.logger.info ("Waiting: " + waitTicks + " ticks");
+      wait (waitTicks);
     }
 
-    walkDst.block = breakBlockAndSetWaiting (digX, digY, digZ);
+    // Set new destination to walk to
+    walkDst.block = getWorld ().getBlockAt (digX, digY, digZ);
+  }
+
+  private void addLight (int x, int y, int z)
+  {
+    ++lightCounter;
+    if (lightCounter < lightThreshold)
+      return;
+    lightCounter = 0;
+
+    Block lightBlock = getWorld ().getBlockAt (x, y, z);
+    if (lightBlock.getType () != Material.AIR)
+      lightBlock.setType (Material.GLOWSTONE);
   }
 
   private Block getGoalAvailable()
@@ -233,26 +255,21 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
     return null;
   }
 
-  private Block breakBlockAndSetWaiting (int x, int y, int z)
+  private int breakBlockAndAddWait (int x, int y, int z, boolean breakBlock)
   {
-    Plugin.logger.info ("breakBlockAndSetWaiting");
+    int waitTicks = 0;
 
-    Block blockToBreak = getWorld().getBlockAt(x, y, z);
+    Block blockToBreak = getWorld ().getBlockAt (x, y, z);
+    Plugin.logger.info ("breakBlockAndAddWait: " + blockToBreak.getLocation ().toString ());
 
     // Check for falling blocks and wait if necessary
-    if (isBlockFalling (blockToBreak))
-      wait (waitTicksForFallingBlock);
+    if (blockWillFall (blockToBreak))
+      waitTicks += waitTicksForFallingBlock;
 
-    // FIXME: Check for block found by accident
-    //if (goalFound(blockToBreak))
-    //{
-      // Drop block as item(s)
-    //  blockToBreak.dropBlockAsItem(false);
-    //}
+    if (breakBlock)
+      blockToBreak.breakNaturally ();
 
-    // FIXME: drops?
-    blockToBreak.breakNaturally ();
-    return blockToBreak;
+    return waitTicks;
   }
 
   private int getDigAmount (int diff)
@@ -268,7 +285,7 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
     return 0;
   }
 
-  private boolean isBlockFalling (Block block)
+  private boolean blockWillFall (Block block)
   {
     return
       block.getType () == Material.SAND ||
@@ -287,13 +304,13 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
 
   private void wait (int ticks)
   {
-    waiting = true;
+    walkDst.waiting = true;
     Bukkit.getScheduler ().scheduleSyncDelayedTask (Plugin.plugin, new Runnable ()
     {
       @Override
       public void run ()
       {
-        waiting = false;
+        walkDst.waiting = false;
       }
     }, ticks);
   }

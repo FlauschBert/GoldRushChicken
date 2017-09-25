@@ -1,13 +1,13 @@
 # GoldRushChicken
-Bukkit/Spigot MC Plugin to utilize own AI (MC 1.12.1)
+Bukkit/Spigot MC Plugin to utilize own AI (MC 1.12.2)
 Using NMSUtils from jetp250 (https://www.spigotmc.org/members/jetp250.105311/)
 
 ## Getting Spigot MC
 ```bash
 wget "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar" -O BuildTools.jar
-java -jar BuildTools.jar --rev 1.12.1
+java -jar BuildTools.jar --rev 1.12.2
 ```
-Place generated `spigot-1.12.1.jar` in `spigotmc` folder. See below for directory structure for use with IntelliJ IDE.
+Place generated `spigot-1.12.2.jar` in `spigotmc` folder. See below for directory structure for use with IntelliJ IDE.
 
 ## IntelliJ
 If you don't use IntelliJ simply ignore the folder `.idea` and the `GoldRushChicken.iml` project file. The project uses spigot jar and java sdk as module dependencies.
@@ -27,7 +27,7 @@ $HOME/Documents/GoldRushChicken:
 ## Debugging plugin
 Start the server with the following command for remote debugging:
 ```
-java -Xmx2G -Xms2G -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar ./spigot-1.12.1.jar
+java -Xmx2G -Xms2G -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar ./spigot-1.12.2.jar
 ```
 
 ## Usage ingame

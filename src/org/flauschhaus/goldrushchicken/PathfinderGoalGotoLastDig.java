@@ -9,7 +9,7 @@ public class PathfinderGoalGotoLastDig extends PathfinderGoal
   private double speed;
   private Target walkDst = null;
 
-  private double x, y, z;
+  private int x, y, z;
 
   PathfinderGoalGotoLastDig (EntityInsentient entity, Target walkDst, double speed)
   {
@@ -26,6 +26,9 @@ public class PathfinderGoalGotoLastDig extends PathfinderGoal
 
     // FIXME: ???
     if (entity.aI () >= 100)
+      return false;
+
+    if (walkDst.waiting)
       return false;
 
     return (walkDst.block != null);
@@ -52,27 +55,24 @@ public class PathfinderGoalGotoLastDig extends PathfinderGoal
   {
     Plugin.logger.info ("PathfinderGoalGotoLastDig e() called");
 
-    // Except the first two times (always false) it returns whether the path is free
-    if (!entity.getNavigation ().a (x, y, z, speed))
-      return;
-
     if (reachedGoal ())
+    {
       walkDst.block = null;
+      return;
+    }
+
+    // Except the first two times (always false) it returns whether the path is free
+    entity.getNavigation ().a (x, y, z, speed);
+
+    Plugin.logger.info ("Walking at: " + entity.locX + ", " + entity.locY + ", " + entity.locZ);
   }
 
   private boolean reachedGoal ()
   {
     boolean success =
-      Math.floor (entity.locX) == Math.floor (x) &&
-      Math.floor (entity.locY) == Math.floor (y) &&
-      Math.floor (entity.locZ) == Math.floor (z);
-
-    if (! success &&
-        Math.floor (entity.locY) < Math.floor (y))
-    {
-      success = true;
-      walkDst.lastDigDown = true;
-    }
+      (int) Math.floor (entity.locX) == x &&
+      (int) Math.floor (entity.locY) == y &&
+      (int) Math.floor (entity.locZ) == z;
 
     if (success)
       Plugin.logger.info ("Goal reached: " + x + ", " + y + ", " + z);
@@ -82,9 +82,17 @@ public class PathfinderGoalGotoLastDig extends PathfinderGoal
 
   private void updateGoal ()
   {
-    x = walkDst.block.getX () + 0.5d;
-    y = walkDst.block.getY () + 0.5d;
-    z = walkDst.block.getZ () + 0.5d;
+    x = walkDst.block.getX ();
+    y = walkDst.block.getY ();
+    z = walkDst.block.getZ ();
+
+    // Problem here is that the entity can fall below the
+    // walking destination so it never can reach it
+    //
+    // So we have to correct this here
+    if (y > (int) Math.floor (entity.locY))
+      y = (int) Math.floor (entity.locY);
+
     Plugin.logger.info ("Setting goal to: " + x + ", " + y + ", " + z);
   }
 }

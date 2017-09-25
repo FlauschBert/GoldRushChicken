@@ -13,6 +13,7 @@ class Target
 {
   Block block = null;
   boolean lastDigDown = false;
+  boolean waiting = false;
 }
 
 public class SkeletalDigger extends EntitySkeletonWither
@@ -31,6 +32,7 @@ public class SkeletalDigger extends EntitySkeletonWither
     ArrayList<Material> materials = new ArrayList<Material> ();
     materials.add (Material.GOLD_ORE);
     materials.add (Material.DIAMOND_ORE);
+    materials.add (Material.IRON_ORE);
     return materials;
   }
 
