@@ -33,4 +33,5 @@ java -Xmx2G -Xms2G -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address
 
 ## Usage ingame
 command `/grc` spawns a gold rush chicken near the player
+
 command `/grd` spawns a skeletal digga (skeletal whither) near the player
