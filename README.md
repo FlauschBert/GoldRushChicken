@@ -1,5 +1,6 @@
 # GoldRushChicken
 Bukkit/Spigot MC Plugin to utilize own AI (MC 1.12.2)
+
 Using NMSUtils from jetp250 (https://www.spigotmc.org/members/jetp250.105311/)
 
 ## Getting Spigot MC
@@ -32,3 +33,4 @@ java -Xmx2G -Xms2G -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address
 
 ## Usage ingame
 command `/grc` spawns a gold rush chicken near the player
+command `/grd` spawns a skeletal digga (skeletal whither) near the player
