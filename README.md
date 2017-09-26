@@ -1,5 +1,5 @@
 # GoldRushChicken
-Bukkit/Spigot MC Plugin to utilize own AI (MC 1.12.2)
+Bukkit/Spigot MC Server Side Plugin to utilize own AI (MC 1.12.2)
 
 Using NMSUtils from jetp250 (https://www.spigotmc.org/members/jetp250.105311/)
 
