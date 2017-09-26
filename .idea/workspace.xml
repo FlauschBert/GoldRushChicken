@@ -8,8 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="db81eb7e-fa58-41f9-b841-f765be1bed18" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GoldRushChicken.iml" afterPath="$PROJECT_DIR$/GoldRushChicken.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathfinderGoalDigForResource.java" afterPath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathfinderGoalDigForResource.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathfinderGoalGotoLastDig.java" afterPath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathfinderGoalGotoLastDig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/SkeletalDigger.java" afterPath="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/SkeletalDigger.java" />
@@ -29,11 +27,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.48127687">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="SkeletalDigger.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="SkeletalDigger.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/SkeletalDigger.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="512">
-                  <caret line="32" column="4" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+                <state relative-caret-position="435">
+                  <caret line="36" column="38" lean-forward="false" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -41,11 +39,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="PathfinderGoalDigForResource.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="PathfinderGoalDigForResource.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathfinderGoalDigForResource.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="145">
-                  <caret line="125" column="5" lean-forward="true" selection-start-line="125" selection-start-column="5" selection-end-line="125" selection-end-column="5" />
+                <state relative-caret-position="665">
+                  <caret line="193" column="20" lean-forward="false" selection-start-line="193" selection-start-column="20" selection-end-line="193" selection-end-column="20" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -56,8 +54,8 @@
           <file leaf-file-name="PathfinderGoalGotoLastDig.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathfinderGoalGotoLastDig.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="737">
-                  <caret line="92" column="43" lean-forward="true" selection-start-line="92" selection-start-column="43" selection-end-line="92" selection-end-column="43" />
+                <state relative-caret-position="657">
+                  <caret line="80" column="42" lean-forward="false" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -72,8 +70,8 @@
           <file leaf-file-name="PathfinderGoalDigForResource.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathfinderGoalDigForResource.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-879">
-                  <caret line="198" column="50" lean-forward="true" selection-start-line="198" selection-start-column="50" selection-end-line="198" selection-end-column="50" />
+                <state relative-caret-position="797">
+                  <caret line="328" column="36" lean-forward="false" selection-start-line="328" selection-start-column="36" selection-end-line="328" selection-end-column="36" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -158,9 +156,9 @@
         <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Helper.java" />
         <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathFinderGoalWalk.java" />
         <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathfinderGoalDigForGold.java" />
-        <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/SkeletalDigger.java" />
-        <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathfinderGoalGotoLastDig.java" />
         <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathfinderGoalDigForResource.java" />
+        <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathfinderGoalGotoLastDig.java" />
+        <option value="$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/SkeletalDigger.java" />
       </list>
     </option>
   </component>
@@ -188,9 +186,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,12 +212,15 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/spigotmc/spigot-1.12.2.jar!/" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="extract.method.default.visibility" value="private" />
@@ -277,6 +275,14 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <envs />
     </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <module name="GoldRushChicken" />
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -296,14 +302,6 @@
       </option>
       <envs />
       <patterns />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <module name="GoldRushChicken" />
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -356,7 +354,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="920" y="4" width="1890" height="1080" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1186" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -368,9 +366,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299285" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22366993" sideWeight="0.7252632" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32842106" sideWeight="0.49788135" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11563518" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15031983" sideWeight="0.7252632" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.115384616" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23473684" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21824104" sideWeight="0.27473685" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -378,6 +375,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20127119" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32842106" sideWeight="0.49788135" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -412,21 +410,8 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/CommandGRC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="9" column="50" lean-forward="false" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/CommandGRD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="35" column="58" lean-forward="false" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/CommandGRC.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/CommandGRD.java" />
     <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityTypes.class" />
     <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/DataWatcher.class" />
     <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/PathfinderGoalNearestAttackableTarget.class" />
@@ -461,21 +446,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/NMSUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="146" column="16" lean-forward="false" selection-start-line="146" selection-start-column="16" selection-end-line="146" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/NMSUtils.java" />
     <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Plugin.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="848">
           <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -483,7 +458,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
           <caret line="83" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -502,13 +476,7 @@
     <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EnumCreatureType.class" />
     <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityRabbit.class" />
     <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/org/bukkit/Location.class" />
-    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Delayed.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/Delayed.java" />
     <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/PathfinderGoal.class" />
     <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/PathEntity.class" />
     <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/EntityInsentient.class" />
@@ -526,52 +494,33 @@
     <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/net/minecraft/server/v1_12_R1/Position.class" />
     <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/org/bukkit/World.class" />
     <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.1.jar!/org/bukkit/block/Block.class" />
-    <entry file="file://$USER_HOME$/Downloads/src.grc/org/flauschhaus/canarymod/goldrushchicken/MyGoldSearchAI.java">
+    <entry file="file://$USER_HOME$/Downloads/src.grc/org/flauschhaus/canarymod/goldrushchicken/MyGoldSearchAI.java" />
+    <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.2.jar!/net/minecraft/server/v1_12_R1/PathfinderGoalSelector.class" />
+    <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.2.jar!/net/minecraft/server/v1_12_R1/NavigationAbstract.class" />
+    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathfinderGoalDigForResource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="49" column="15" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.2.jar!/net/minecraft/server/v1_12_R1/PathfinderGoalSelector.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1024">
-          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/SkeletalDigger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="32" column="4" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+        <state relative-caret-position="665">
+          <caret line="193" column="20" lean-forward="false" selection-start-line="193" selection-start-column="20" selection-end-line="193" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/spigotmc/spigot-1.12.2.jar!/net/minecraft/server/v1_12_R1/NavigationAbstract.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="786">
-          <caret line="114" column="17" lean-forward="false" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathfinderGoalGotoLastDig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="737">
-          <caret line="92" column="43" lean-forward="true" selection-start-line="92" selection-start-column="43" selection-end-line="92" selection-end-column="43" />
+        <state relative-caret-position="657">
+          <caret line="80" column="42" lean-forward="false" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/PathfinderGoalDigForResource.java">
+    <entry file="file://$PROJECT_DIR$/src/org/flauschhaus/goldrushchicken/SkeletalDigger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="125" column="5" lean-forward="true" selection-start-line="125" selection-start-column="5" selection-end-line="125" selection-end-column="5" />
+        <state relative-caret-position="435">
+          <caret line="36" column="38" lean-forward="false" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

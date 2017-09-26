@@ -8,6 +8,7 @@ public class PathfinderGoalGotoLastDig extends PathfinderGoal
   private EntityInsentient entity;
   private double speed;
   private Target walkDst = null;
+  private int unreachedGoalCount = 0;
 
   private int x, y, z;
 
@@ -40,6 +41,7 @@ public class PathfinderGoalGotoLastDig extends PathfinderGoal
   {
     Plugin.logger.info ("PathfinderGoalGotoLastDig c() called");
     updateGoal ();
+    unreachedGoalCount = 0;
   }
 
   // onFinish () - called only once - after returns false the first time
@@ -73,6 +75,14 @@ public class PathfinderGoalGotoLastDig extends PathfinderGoal
       (int) Math.floor (entity.locX) == x &&
       (int) Math.floor (entity.locY) == y &&
       (int) Math.floor (entity.locZ) == z;
+
+    // Sometimes the entity hangs a block near the wanted block
+    // If this happens we reset walkDst to be set again
+    if (!success && unreachedGoalCount > 8)
+      success = true;
+
+    if (!success)
+      ++unreachedGoalCount;
 
     if (success)
       Plugin.logger.info ("Goal reached: " + x + ", " + y + ", " + z);

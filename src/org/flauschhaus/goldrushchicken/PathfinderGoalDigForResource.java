@@ -46,14 +46,11 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
     if (walkDst.block != null)
       return false;
 
-    // If nothing found yet call updateTask()
-    if (resourceDst == null)
-      return true;
-
-    // If resource found and reached the block reset
-    if (reachedResource ())
+    // If resource removed go on searching
+    if (diggedResource () ||
+        tooFarBelowResource ())
     {
-      Plugin.logger.info ("Found resourceDst: " + resourceDst.getLocation ());
+      logBlock ("Resetting resourceDst", resourceDst.getX (), resourceDst.getY (), resourceDst.getZ (), resourceDst);
 
       // Reset to search for new resourceDst
       resourceDst = null;
@@ -127,9 +124,12 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
     else
     {
       Plugin.logger.info ("Resource ...");
+
       int tarX = resourceDst.getX();
       int tarY = resourceDst.getY();
       int tarZ = resourceDst.getZ();
+
+      logBlock ("Locked resource", tarX, tarY, tarZ, resourceDst);
 
       int dX = getDigAmount (tarX - livX);
       int dY = getDigAmount (tarY - livY);
@@ -190,7 +190,8 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
     lightCounter = 0;
 
     Block lightBlock = getWorld ().getBlockAt (x, y, z);
-    if (lightBlock.getType () != Material.AIR)
+    if (lightBlock.getType () != Material.AIR &&
+      !resourceFound (lightBlock))
       lightBlock.setType (Material.GLOWSTONE);
   }
 
@@ -202,7 +203,6 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
 
     for (int d = 1; d < distance / 2; ++d)
     {
-
       int[] xPos = new int [2];
       xPos [0] = currentX + d;
       xPos [1] = currentX - d;
@@ -211,7 +211,7 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
           for (int y = currentY - d; y <= currentY + d; ++y) {
             for (int z = currentZ - d; z <= currentZ + d; ++z) {
               Block block = getWorld().getBlockAt(x, y, z);
-              if (goalFound (block)) {
+              if (resourceFound (block)) {
                 return block;
               }
             }
@@ -227,7 +227,7 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
           for (int y = currentY - d; y <= currentY + d; ++y) {
             for (int x = currentX - d; x <= currentX + d; ++x) {
               Block block = getWorld().getBlockAt(x, y, z);
-              if (goalFound (block)) {
+              if (resourceFound (block)) {
                 return block;
               }
             }
@@ -243,7 +243,7 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
           for (int z = currentZ - d; z <= currentZ + d; ++z) {
             for (int x = currentX - d; x <= currentX + d; ++x) {
               Block block = getWorld().getBlockAt(x, y, z);
-              if (goalFound (block)) {
+              if (resourceFound (block)) {
                 return block;
               }
             }
@@ -260,7 +260,7 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
     int waitTicks = 0;
 
     Block blockToBreak = getWorld ().getBlockAt (x, y, z);
-    Plugin.logger.info ("breakBlockAndAddWait: " + blockToBreak.getLocation ().toString ());
+    logBlock ("breakBlockAndAddWait", x, y, z, blockToBreak);
 
     // Check for falling blocks and wait if necessary
     if (blockWillFall (blockToBreak))
@@ -268,6 +268,12 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
 
     if (breakBlock)
       blockToBreak.breakNaturally ();
+
+    if (breakBlock &&
+        blockToBreak.getType () != Material.AIR)
+    {
+      Plugin.logger.info ("Found unbreakable block");
+    }
 
     return waitTicks;
   }
@@ -292,7 +298,7 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
       block.getType () == Material.GRAVEL;
   }
 
-  private boolean goalFound (Block block)
+  private boolean resourceFound (Block block)
   {
     return materials.contains(block.getType());
   }
@@ -315,12 +321,23 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
     }, ticks);
   }
 
-  private boolean reachedResource ()
+  private boolean tooFarBelowResource ()
+  {
+    int livY = (int) Math.floor (entity.locY);
+    return
+      resourceDst != null &&
+      resourceDst.getY () > livY + 2;
+  }
+
+  private boolean diggedResource ()
   {
     return
-      (int) Math.floor (entity.locX) == resourceDst.getX () &&
-      (int) Math.floor (entity.locY) == resourceDst.getY () &&
-      (int) Math.floor (entity.locZ) == resourceDst.getZ ();
+      resourceDst != null &&
+      !resourceFound (resourceDst);
+  }
 
+  private void logBlock (String info, int x, int y, int z, Block block)
+  {
+    Plugin.logger.info (info + ": " + x + ", " + y + ", " + z + "; " + block.getType ().toString ());
   }
 }
