@@ -15,7 +15,7 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
   private EntityInsentient entity;
 
   private Random random;
-  private final int minSameDirection = 5;
+  private final int minSameDirection = 15;
   private int sameDirectionCount = 0;
   private int lastDirection = 0;
 
@@ -211,8 +211,10 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
 
     Block lightBlock = getWorld ().getBlockAt (x, y, z);
     if (lightBlock.getType () != Material.AIR &&
-      !resourceFound (lightBlock))
+        !resourceFound (lightBlock))
+    {
       lightBlock.setType (Material.GLOWSTONE);
+    }
   }
 
   private Block getGoalAvailable()
@@ -227,11 +229,11 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
       if (blockX != null)
         return blockX;
 
-      Block blockZ = getBlockZ (currentX, currentY, currentZ, d);
+      Block blockZ = getBlockY (currentX, currentY, currentZ, d);
       if (blockZ != null)
         return blockZ;
 
-      Block blockY = getBlockY (currentX, currentY, currentZ, d);
+      Block blockY = getBlockZ (currentX, currentY, currentZ, d);
       if (blockY != null)
         return blockY;
     }
@@ -239,39 +241,33 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
     return null;
   }
 
-  private Block getBlockZ (int currentX, int currentY, int currentZ, int d)
+  private Block getBlockY (int currentX, int currentY, int currentZ, int d)
   {
-    int[] yPos = new int [2];
-    yPos [0] = currentY + d;
-    yPos [1] = currentY - d;
-    {
-      for (int y : yPos) {
-        for (int z = currentZ - d; z <= currentZ + d; ++z) {
-          for (int x = currentX - d; x <= currentX + d; ++x) {
-            Block block = getWorld().getBlockAt(x, y, z);
-            if (resourceFound (block)) {
-              return block;
-            }
-          }
+    // Search below only
+    int y = currentY - d;
+    for (int z = currentZ - d; z <= currentZ + d; ++z) {
+      for (int x = currentX - d; x <= currentX + d; ++x) {
+        Block block = getWorld().getBlockAt(x, y, z);
+        if (resourceFound (block)) {
+          return block;
         }
       }
     }
     return null;
   }
 
-  private Block getBlockY (int currentX, int currentY, int currentZ, int d)
+  private Block getBlockZ (int currentX, int currentY, int currentZ, int d)
   {
     int[] zPos = new int [2];
     zPos [0] = currentZ + d;
     zPos [1] = currentZ - d;
-    {
-      for (int z : zPos) {
-        for (int y = currentY - d; y <= currentY + d; ++y) {
-          for (int x = currentX - d; x <= currentX + d; ++x) {
-            Block block = getWorld().getBlockAt(x, y, z);
-            if (resourceFound (block)) {
-              return block;
-            }
+    int maxDY = getMaxDY (d);
+    for (int z : zPos) {
+      for (int y = currentY - d; y <= currentY + maxDY; ++y) {
+        for (int x = currentX - d; x <= currentX + d; ++x) {
+          Block block = getWorld().getBlockAt(x, y, z);
+          if (resourceFound (block)) {
+            return block;
           }
         }
       }
@@ -284,19 +280,25 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
     int[] xPos = new int [2];
     xPos [0] = currentX + d;
     xPos [1] = currentX - d;
-    {
-      for (int x : xPos) {
-        for (int y = currentY - d; y <= currentY + d; ++y) {
-          for (int z = currentZ - d; z <= currentZ + d; ++z) {
-            Block block = getWorld().getBlockAt(x, y, z);
-            if (resourceFound (block)) {
-              return block;
-            }
+    int maxDY = getMaxDY (d);
+    for (int x : xPos) {
+      for (int y = currentY - d; y <= currentY + maxDY; ++y) {
+        for (int z = currentZ - d; z <= currentZ + d; ++z) {
+          Block block = getWorld().getBlockAt(x, y, z);
+          if (resourceFound (block)) {
+            return block;
           }
         }
       }
     }
     return null;
+  }
+
+  private int getMaxDY (int d)
+  {
+    if (d > 2)
+      return 2;
+    return d;
   }
 
   private int breakBlockAndAddWait (int x, int y, int z, boolean breakBlock)
@@ -311,8 +313,12 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
       waitTicks += waitTicksForFallingBlock;
 
     if (breakBlock)
-      blockToBreak.breakNaturally ();
-
+    {
+      if (resourceFound (blockToBreak))
+        blockToBreak.breakNaturally ();
+      else
+        blockToBreak.setType (Material.AIR);
+    }
     return waitTicks;
   }
 
