@@ -157,7 +157,6 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
       }
       else
       {
-        Plugin.logger.info ("Argh!");
         walkDst.lastDigDown = true;
       }
     }
@@ -203,55 +202,79 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
 
     for (int d = 1; d < distance / 2; ++d)
     {
-      int[] xPos = new int [2];
-      xPos [0] = currentX + d;
-      xPos [1] = currentX - d;
-      {
-        for (int x : xPos) {
-          for (int y = currentY - d; y <= currentY + d; ++y) {
-            for (int z = currentZ - d; z <= currentZ + d; ++z) {
-              Block block = getWorld().getBlockAt(x, y, z);
-              if (resourceFound (block)) {
-                return block;
-              }
-            }
-          }
-        }
-      }
+      Block blockX = getBlockX (currentX, currentY, currentZ, d);
+      if (blockX != null)
+        return blockX;
 
-      int[] zPos = new int [2];
-      zPos [0] = currentZ + d;
-      zPos [1] = currentZ - d;
-      {
-        for (int z : zPos) {
-          for (int y = currentY - d; y <= currentY + d; ++y) {
-            for (int x = currentX - d; x <= currentX + d; ++x) {
-              Block block = getWorld().getBlockAt(x, y, z);
-              if (resourceFound (block)) {
-                return block;
-              }
-            }
-          }
-        }
-      }
+      Block blockZ = getBlockZ (currentX, currentY, currentZ, d);
+      if (blockZ != null)
+        return blockZ;
 
-      int[] yPos = new int [2];
-      yPos [0] = currentY + d;
-      yPos [1] = currentY - d;
-      {
-        for (int y : yPos) {
-          for (int z = currentZ - d; z <= currentZ + d; ++z) {
-            for (int x = currentX - d; x <= currentX + d; ++x) {
-              Block block = getWorld().getBlockAt(x, y, z);
-              if (resourceFound (block)) {
-                return block;
-              }
+      Block blockY = getBlockY (currentX, currentY, currentZ, d);
+      if (blockY != null)
+        return blockY;
+    }
+
+    return null;
+  }
+
+  private Block getBlockZ (int currentX, int currentY, int currentZ, int d)
+  {
+    int[] yPos = new int [2];
+    yPos [0] = currentY + d;
+    yPos [1] = currentY - d;
+    {
+      for (int y : yPos) {
+        for (int z = currentZ - d; z <= currentZ + d; ++z) {
+          for (int x = currentX - d; x <= currentX + d; ++x) {
+            Block block = getWorld().getBlockAt(x, y, z);
+            if (resourceFound (block)) {
+              return block;
             }
           }
         }
       }
     }
+    return null;
+  }
 
+  private Block getBlockY (int currentX, int currentY, int currentZ, int d)
+  {
+    int[] zPos = new int [2];
+    zPos [0] = currentZ + d;
+    zPos [1] = currentZ - d;
+    {
+      for (int z : zPos) {
+        for (int y = currentY - d; y <= currentY + d; ++y) {
+          for (int x = currentX - d; x <= currentX + d; ++x) {
+            Block block = getWorld().getBlockAt(x, y, z);
+            if (resourceFound (block)) {
+              return block;
+            }
+          }
+        }
+      }
+    }
+    return null;
+  }
+
+  private Block getBlockX (int currentX, int currentY, int currentZ, int d)
+  {
+    int[] xPos = new int [2];
+    xPos [0] = currentX + d;
+    xPos [1] = currentX - d;
+    {
+      for (int x : xPos) {
+        for (int y = currentY - d; y <= currentY + d; ++y) {
+          for (int z = currentZ - d; z <= currentZ + d; ++z) {
+            Block block = getWorld().getBlockAt(x, y, z);
+            if (resourceFound (block)) {
+              return block;
+            }
+          }
+        }
+      }
+    }
     return null;
   }
 
@@ -268,12 +291,6 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
 
     if (breakBlock)
       blockToBreak.breakNaturally ();
-
-    if (breakBlock &&
-        blockToBreak.getType () != Material.AIR)
-    {
-      Plugin.logger.info ("Found unbreakable block");
-    }
 
     return waitTicks;
   }

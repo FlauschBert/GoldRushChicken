@@ -5,6 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 
 import java.util.ArrayList;
@@ -23,8 +24,11 @@ public class SkeletalDigger extends EntitySkeletonWither
   SkeletalDigger (World world)
   {
     super(world);
-    this.setCustomName ("Digga");
-    this.setCustomNameVisible (true);
+    setCustomName ("Digga");
+    setCustomNameVisible (true);
+
+    // Don't get despawned if far away from player
+    ((LivingEntity) this).setRemoveWhenFarAway (false);
   }
 
   private ArrayList<Material> getMaterials ()

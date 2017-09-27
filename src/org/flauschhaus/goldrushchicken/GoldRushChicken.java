@@ -5,6 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
@@ -21,7 +22,12 @@ public class GoldRushChicken extends EntityChicken implements InventoryHolder
   public GoldRushChicken (net.minecraft.server.v1_12_R1.World world)
   {
     super(world);
-    setAttributes ();
+
+    setCustomName ("Goldie");
+    setCustomNameVisible (true);
+
+    // Don't get despawned if far away from player
+    ((LivingEntity) this).setRemoveWhenFarAway (false);
 
     bag = Bukkit.createInventory (this, 1 * 9, "Chicken bag");;
   }
@@ -79,11 +85,5 @@ public class GoldRushChicken extends EntityChicken implements InventoryHolder
 
     //this.goalSelector.a (0, new PathfinderGoalDigForResource (this, new Location (bukkitWorld, locX, locY, locZ), 1.0));
     //this.targetSelector.a(2, new PathfinderGoalNearestAttackableTarget(this, EntitySpider.class, 0, false));
-  }
-
-  private void setAttributes ()
-  {
-    this.setCustomName ("Goldie");
-    this.setCustomNameVisible (true);
   }
 }
