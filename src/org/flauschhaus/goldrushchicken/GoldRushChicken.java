@@ -27,7 +27,7 @@ public class GoldRushChicken extends EntityChicken implements InventoryHolder
     setCustomNameVisible (true);
 
     // Don't get despawned if far away from player
-    ((LivingEntity) this).setRemoveWhenFarAway (false);
+    ((LivingEntity) getBukkitEntity ()).setRemoveWhenFarAway (false);
 
     bag = Bukkit.createInventory (this, 1 * 9, "Chicken bag");;
   }

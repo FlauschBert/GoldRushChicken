@@ -28,7 +28,7 @@ public class SkeletalDigger extends EntitySkeletonWither
     setCustomNameVisible (true);
 
     // Don't get despawned if far away from player
-    ((LivingEntity) this).setRemoveWhenFarAway (false);
+    ((LivingEntity) getBukkitEntity ()).setRemoveWhenFarAway (false);
   }
 
   private ArrayList<Material> getMaterials ()

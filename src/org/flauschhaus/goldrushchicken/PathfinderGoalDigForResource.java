@@ -5,6 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.Material;
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class PathfinderGoalDigForResource extends PathfinderGoal
@@ -12,6 +13,11 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
   private final int distance = 60;
 
   private EntityInsentient entity;
+
+  private Random random;
+  private final int minSameDirection = 5;
+  private int sameDirectionCount = 0;
+  private int lastDirection = 0;
 
   // Found block to move to
   private Block resourceDst = null;
@@ -29,6 +35,7 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
   PathfinderGoalDigForResource (EntityInsentient entity, ArrayList<Material> materials, Target walkDst)
   {
     this.entity = entity;
+    this.random = entity.getRandom ();
     this.materials = materials;
     this.walkDst = walkDst;
   }
@@ -112,7 +119,21 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
       Plugin.logger.info ("Dig and move ...");
       if (walkDst.lastDigDown)
       {
-        digX += 1;
+        int direction = lastDirection;
+        ++sameDirectionCount;
+        if (sameDirectionCount > minSameDirection)
+        {
+          // random number between 0-1
+          direction = random.nextInt (2);
+          lastDirection = direction;
+          sameDirectionCount = 0;
+        }
+
+        if (direction == 0)
+          digX += 1;
+        else
+          digZ += 1;
+
         walkDst.lastDigDown = false;
       }
       else
