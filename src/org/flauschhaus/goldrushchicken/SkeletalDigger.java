@@ -43,7 +43,8 @@ public class SkeletalDigger extends EntitySkeletonWither
   }
 
   @Override
-  public GroupDataEntity prepare(DifficultyDamageScaler dds, GroupDataEntity gde) {
+  public GroupDataEntity prepare(DifficultyDamageScaler dds, GroupDataEntity gde)
+  {
     // Calling the super method FIRST, so in case it changes the equipment, our equipment overrides it.
     gde = super.prepare(dds, gde);
     // We'll set the main hand to a bow and head to a pumpkin now!
@@ -66,17 +67,17 @@ public class SkeletalDigger extends EntitySkeletonWither
     // Randomly look around
     this.goalSelector.a(2, new PathfinderGoalRandomLookaround(this));
     this.goalSelector.a (3, new PathfinderGoalDigForResource (this, getMaterials (), lastDigPosition));
-    this.goalSelector.a (4, new PathfinderGoalGotoLastDig (this, lastDigPosition, 2.0D));
+    this.goalSelector.a (4, new PathfinderGoalGotoLastDig (this, lastDigPosition, 1.7D));
   }
 
-  static boolean spawn (Location location, CraftWorld world)
+  static SkeletalDigger spawn (Location location, CraftWorld world)
   {
     SkeletalDigger skeletalDigger = new SkeletalDigger (world.getHandle ());
     skeletalDigger.setPosition (location.getX(), location.getY(), location.getZ());
     if (!skeletalDigger.world.addEntity (skeletalDigger, CreatureSpawnEvent.SpawnReason.CUSTOM))
     {
       Plugin.logger.info ("Spawning skeletal digger failed");
-      return false;
+      return null;
     }
     Plugin.logger.info ("Spawning skeletal digger at location: " + skeletalDigger.locX + ", " + skeletalDigger.locY + ", " + skeletalDigger.locZ);
 
@@ -85,25 +86,8 @@ public class SkeletalDigger extends EntitySkeletonWither
     // Add/Update pickaxe and pumpkin
     ((EntityInsentient) skeletalDigger).prepare(skeletalDigger.world.D(new BlockPosition(skeletalDigger)), (GroupDataEntity) null);
 
-//    Bukkit.getScheduler ().scheduleSyncRepeatingTask (Plugin.plugin, new Runnable ()
-//    {
-//      int value = 5;
-//
-//      @Override
-//      public void run ()
-//      {
-//        Player player = Bukkit.getServer ().getPlayer ("FlauschBert");
-//        if (player != null)
-//        {
-//          player.sendRawMessage ("Value: " + value);
-//        }
-//
-//        // hit stuff: 20 (spreading stars), 35 (fireworks)
-//        skeletalDigger.world.broadcastEntityEffect (skeletalDigger, (byte) value);
-//        ++value;
-//      }
-//    }, 0, 40);
-
-    return true;
+    // hit stuff: 20 (spreading stars), 35 (fireworks)
+    skeletalDigger.world.broadcastEntityEffect (skeletalDigger, (byte) 20);
+    return skeletalDigger;
   }
 }

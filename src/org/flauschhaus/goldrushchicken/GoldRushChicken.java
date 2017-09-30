@@ -16,8 +16,10 @@ import java.util.List;
 
 public class GoldRushChicken extends EntityChicken implements InventoryHolder
 {
-  private Inventory bag;
+  private Inventory bag = null;
   private static List<Delayed> delayedChicken = new ArrayList<> ();
+  SkeletalDigger digga = null;
+  private int followTaskId = -1;
 
   public GoldRushChicken (net.minecraft.server.v1_12_R1.World world)
   {
@@ -28,8 +30,23 @@ public class GoldRushChicken extends EntityChicken implements InventoryHolder
 
     // Don't get despawned if far away from player
     ((LivingEntity) getBukkitEntity ()).setRemoveWhenFarAway (false);
+    ((LivingEntity) getBukkitEntity ()).setCanPickupItems (true);
 
     bag = Bukkit.createInventory (this, 1 * 9, "Chicken bag");;
+  }
+
+  void follow (EntityInsentient entity)
+  {
+    followTaskId =
+      Bukkit.getScheduler().scheduleSyncRepeatingTask(Plugin.plugin, new Runnable()
+      {
+        @Override
+        public void run()
+        {
+          double walkSpeed = 2.0D;
+          getNavigation().a(entity.locX, entity.locY, entity.locZ, walkSpeed);
+        }
+      }, 0 * 10, 2 * 15);
   }
 
   static boolean spawn (Location location, ItemStack[] itemStacks, CraftWorld world)
@@ -48,6 +65,9 @@ public class GoldRushChicken extends EntityChicken implements InventoryHolder
       return false;
     }
     Plugin.addChicken (chicken.getUniqueID ());
+
+    // hit stuff: 18 (17? hearts), 20 (spreading stars), 35 (fireworks)
+    chicken.world.broadcastEntityEffect (chicken, (byte) 20);
     return true;
   }
   static void spawnDelayed (World world)
@@ -82,8 +102,6 @@ public class GoldRushChicken extends EntityChicken implements InventoryHolder
     this.goalSelector.a(2, new PathfinderGoalFloat(this));
     // Randomly look around
     this.goalSelector.a(3, new PathfinderGoalRandomLookaround(this));
-
-    //this.goalSelector.a (0, new PathfinderGoalDigForResource (this, new Location (bukkitWorld, locX, locY, locZ), 1.0));
-    //this.targetSelector.a(2, new PathfinderGoalNearestAttackableTarget(this, EntitySpider.class, 0, false));
+    this.goalSelector.a(4, new GoalSpawnSkeletalDigger (this));
   }
 }

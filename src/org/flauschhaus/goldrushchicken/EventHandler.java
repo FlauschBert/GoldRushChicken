@@ -6,6 +6,7 @@ import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftWitherSkeleton;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.inventory.EquipmentSlot;
@@ -61,6 +62,30 @@ public class EventHandler implements Listener
       SkeletalDigger digger = (SkeletalDigger) craftWitherSkeleton.getHandle ();
       // Remove from tracking
       Plugin.removeDigger (digger.getUniqueID ());
+    }
+    catch (Exception e)
+    {
+      // Nothing to do
+    }
+
+  }
+
+  @org.bukkit.event.EventHandler
+  public void onPickupItems (EntityPickupItemEvent event)
+  {
+    // Handle chicken
+    try
+    {
+      // Do we have chicken?
+      CraftChicken craftChicken = (CraftChicken) event.getEntity ();
+      // Do we have gold rush chicken?
+      GoldRushChicken chicken = (GoldRushChicken) craftChicken.getHandle ();
+
+      Plugin.logger.info ("Picked up: "
+        + event.getItem ().getItemStack ().getType ()
+        + "(" + event.getItem ().getItemStack ().getAmount () + ")");
+      chicken.getInventory ().addItem (event.getItem ().getItemStack ());
+      event.getItem ().remove ();
     }
     catch (Exception e)
     {

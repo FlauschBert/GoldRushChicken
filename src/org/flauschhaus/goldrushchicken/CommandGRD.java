@@ -27,7 +27,7 @@ public class CommandGRD implements CommandExecutor
     Location location = getPlayerLocation (commandSender);
     location.add (1.0, 0.0, 0.0);
     World world = getWorld (commandSender);
-    if (SkeletalDigger.spawn (location, (CraftWorld) world))
+    if (SkeletalDigger.spawn (location, (CraftWorld) world) != null)
     {
       commandSender.sendMessage ("Spawning skeletal digger...");
     }
