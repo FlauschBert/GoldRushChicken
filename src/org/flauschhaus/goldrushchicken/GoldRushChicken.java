@@ -2,6 +2,7 @@ package org.flauschhaus.goldrushchicken;
 
 import net.minecraft.server.v1_12_R1.*;
 import org.bukkit.Bukkit;
+import org.bukkit.block.Block;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
@@ -43,6 +44,11 @@ public class GoldRushChicken extends EntityChicken implements InventoryHolder
         @Override
         public void run()
         {
+          Block block = world.getWorld ().getBlockAt (
+            (int) entity.locX, (int) entity.locY, (int) entity.locZ);
+          if (block.getType () == org.bukkit.Material.LAVA)
+            return;
+
           double walkSpeed = 2.0D;
           getNavigation().a(entity.locX, entity.locY, entity.locZ, walkSpeed);
         }

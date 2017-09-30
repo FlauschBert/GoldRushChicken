@@ -123,16 +123,20 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
         ++sameDirectionCount;
         if (sameDirectionCount > minSameDirection)
         {
-          // random number between 0-1
-          direction = random.nextInt (2);
+          // random number between 0-3
+          direction = random.nextInt (4);
           lastDirection = direction;
           sameDirectionCount = 0;
         }
 
         if (direction == 0)
           digX += 1;
-        else
+        else if (direction == 1)
           digZ += 1;
+        else if (direction == 2)
+          digX -= 1;
+        else if (direction == 3)
+          digZ -= 1;
 
         walkDst.lastDigDown = false;
       }
@@ -198,8 +202,12 @@ public class PathfinderGoalDigForResource extends PathfinderGoal
       wait (waitTicks);
     }
 
+    Block newBlock = getWorld ().getBlockAt (digX, digY, digZ);
+    if (newBlock.getType () == Material.LAVA)
+      return;
+
     // Set new destination to walk to
-    walkDst.block = getWorld ().getBlockAt (digX, digY, digZ);
+    walkDst.block = newBlock;
   }
 
   private void addLight (int x, int y, int z)

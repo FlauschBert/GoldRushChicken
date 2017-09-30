@@ -34,10 +34,10 @@ public class SkeletalDigger extends EntitySkeletonWither
   private ArrayList<Material> getMaterials ()
   {
     ArrayList<Material> materials = new ArrayList<Material> ();
-    materials.add (Material.GOLD_ORE);
     materials.add (Material.DIAMOND_ORE);
-    materials.add (Material.IRON_ORE);
+    materials.add (Material.GOLD_ORE);
     materials.add (Material.LAPIS_ORE);
+    materials.add (Material.IRON_ORE);
     materials.add (Material.COAL_ORE);
     return materials;
   }
