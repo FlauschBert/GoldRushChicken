@@ -35,3 +35,5 @@ java -Xmx2G -Xms2G -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address
 command `/grc` spawns a gold rush chicken near the player
 
 command `/grd` spawns a skeletal digga (skeletal whither) near the player
+
+Add one seed to the chicken inventory and it will spawn a skeletal digga and follow him to collect digged ore.
